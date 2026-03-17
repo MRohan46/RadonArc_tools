@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free percentage calculator. Calculate percentages, percentage increase/decrease, percentage change, and what percent one number is of another instantly.">
+    <meta name="keywords" content="percentage calculator, percent calculator, calculate percentage, percentage increase, percentage decrease, percentage change calculator">
+    <meta name="robots" content="index, follow">
+    
+    <title>Percentage Calculator - Calculate Percentages & Changes | RadonArc</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/percentage-calculator.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../tools.html" class="nav-link active">Tools</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Percentage Calculator</h1>
+            <p class="tool-page-description">Calculate percentages, increases, decreases, and percentage changes. Fast, accurate, and easy to use.</p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="percentage-grid">
+                <!-- What is X% of Y? -->
+                <div class="percentage-card">
+                    <h3 class="percentage-card-title">What is <span class="highlight">X%</span> of <span class="highlight">Y</span>?</h3>
+                    <p class="percentage-card-desc">Find a percentage of a number</p>
+                    
+                    <div class="percentage-inputs">
+                        <div class="input-row">
+                            <label>What is</label>
+                            <input type="number" id="percent1" class="percent-input" placeholder="15" step="any">
+                            <label>% of</label>
+                            <input type="number" id="value1" class="percent-input" placeholder="200" step="any">
+                            <label>?</label>
+                        </div>
+                    </div>
+                    
+                    <button class="calc-btn calc-btn-primary" onclick="percentCalc.calculateType1()">Calculate</button>
+                    
+                    <div class="percentage-result" id="result1" style="display: none;">
+                        <div class="result-value" id="result1Value"></div>
+                        <div class="result-formula" id="result1Formula"></div>
+                    </div>
+                </div>
+
+                <!-- X is what % of Y? -->
+                <div class="percentage-card">
+                    <h3 class="percentage-card-title"><span class="highlight">X</span> is what % of <span class="highlight">Y</span>?</h3>
+                    <p class="percentage-card-desc">Find what percentage one number is of another</p>
+                    
+                    <div class="percentage-inputs">
+                        <div class="input-row">
+                            <input type="number" id="value2" class="percent-input" placeholder="30" step="any">
+                            <label>is what % of</label>
+                            <input type="number" id="total2" class="percent-input" placeholder="200" step="any">
+                            <label>?</label>
+                        </div>
+                    </div>
+                    
+                    <button class="calc-btn calc-btn-primary" onclick="percentCalc.calculateType2()">Calculate</button>
+                    
+                    <div class="percentage-result" id="result2" style="display: none;">
+                        <div class="result-value" id="result2Value"></div>
+                        <div class="result-formula" id="result2Formula"></div>
+                    </div>
+                </div>
+
+                <!-- Percentage Increase -->
+                <div class="percentage-card">
+                    <h3 class="percentage-card-title">Percentage Increase</h3>
+                    <p class="percentage-card-desc">Calculate percentage increase from one number to another</p>
+                    
+                    <div class="percentage-inputs">
+                        <div class="input-row">
+                            <label>From</label>
+                            <input type="number" id="oldValue3" class="percent-input" placeholder="100" step="any">
+                            <label>to</label>
+                            <input type="number" id="newValue3" class="percent-input" placeholder="150" step="any">
+                        </div>
+                    </div>
+                    
+                    <button class="calc-btn calc-btn-primary" onclick="percentCalc.calculateType3()">Calculate</button>
+                    
+                    <div class="percentage-result" id="result3" style="display: none;">
+                        <div class="result-value" id="result3Value"></div>
+                        <div class="result-formula" id="result3Formula"></div>
+                    </div>
+                </div>
+
+                <!-- Percentage Decrease -->
+                <div class="percentage-card">
+                    <h3 class="percentage-card-title">Percentage Decrease</h3>
+                    <p class="percentage-card-desc">Calculate percentage decrease from one number to another</p>
+                    
+                    <div class="percentage-inputs">
+                        <div class="input-row">
+                            <label>From</label>
+                            <input type="number" id="oldValue4" class="percent-input" placeholder="200" step="any">
+                            <label>to</label>
+                            <input type="number" id="newValue4" class="percent-input" placeholder="150" step="any">
+                        </div>
+                    </div>
+                    
+                    <button class="calc-btn calc-btn-primary" onclick="percentCalc.calculateType4()">Calculate</button>
+                    
+                    <div class="percentage-result" id="result4" style="display: none;">
+                        <div class="result-value" id="result4Value"></div>
+                        <div class="result-formula" id="result4Formula"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2 class="related-title">Related Tools</h2>
+                <div class="related-grid">
+                    <a href="calculator.html" class="related-card">
+                        <h3>Basic Calculator</h3>
+                        <p>Simple arithmetic operations</p>
+                    </a>
+                    <a href="scientific-calculator.html" class="related-card">
+                        <h3>Scientific Calculator</h3>
+                        <p>Advanced math functions</p>
+                    </a>
+                    <a href="age-calculator.html" class="related-card">
+                        <h3>Age Calculator</h3>
+                        <p>Calculate exact age from birth date</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">How to Calculate Percentages</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-card-title">Finding X% of Y</h3>
+                        <p class="info-card-text">Formula: (X ÷ 100) × Y<br>Example: 15% of 200 = (15 ÷ 100) × 200 = 30</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">X is What % of Y</h3>
+                        <p class="info-card-text">Formula: (X ÷ Y) × 100<br>Example: 30 is what % of 200? = (30 ÷ 200) × 100 = 15%</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Percentage Change</h3>
+                        <p class="info-card-text">Formula: ((New - Old) ÷ Old) × 100<br>Example: From 100 to 150 = ((150-100) ÷ 100) × 100 = 50% increase</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Common Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I calculate a 20% discount on $100?</h3>
+                        <p class="faq-answer">Use "What is X% of Y": Enter 20% of 100 = $20. The final price is $100 - $20 = $80.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What's the difference between percentage increase and decrease?</h3>
+                        <p class="faq-answer">Percentage increase calculates growth (new value is larger), while percentage decrease calculates reduction (new value is smaller).</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I calculate my test score as a percentage?</h3>
+                        <p class="faq-answer">Use "X is what % of Y": If you got 45 out of 60 correct, enter: 45 is what % of 60 = 75%</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Can I calculate negative percentages?</h3>
+                        <p class="faq-answer">Yes! A negative percentage indicates a decrease. For example, -25% means a 25% reduction.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/percentage-calculator.js"></script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online basic calculator. Perform addition, subtraction, multiplication, division, and percentage calculations instantly. Simple, fast, and accurate.">
+    <meta name="keywords" content="calculator, basic calculator, online calculator, simple calculator, free calculator, math calculator, addition calculator, percentage calculator">
+    <meta name="robots" content="index, follow">
+    
+    <title>Basic Calculator - Free Online Calculator | RadonArc</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/calculator.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../tools.html" class="nav-link active">Tools</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Basic Calculator</h1>
+            <p class="tool-page-description">Simple online calculator for everyday math. Addition, subtraction, multiplication, division, and percentages.</p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="calc-container">
+                <!-- Display -->
+                <div class="calc-display-wrapper">
+                    <div class="calc-expression" id="calcExpression">0</div>
+                    <div class="calc-result" id="calcResult">0</div>
+                </div>
+
+                <!-- Memory Display -->
+                <div class="calc-memory" id="calcMemory" style="display: none;">
+                    Memory: <span id="memoryValue">0</span>
+                </div>
+
+                <!-- Basic Calculator Grid -->
+                <div class="calc-grid">
+                    <button class="calc-btn calc-btn-secondary" onclick="calc.clear()">C</button>
+                    <button class="calc-btn calc-btn-secondary" onclick="calc.clearEntry()">CE</button>
+                    <button class="calc-btn calc-btn-secondary" onclick="calc.backspace()">←</button>
+                    <button class="calc-btn calc-btn-operator" onclick="calc.inputOperator('/')">÷</button>
+
+                    <button class="calc-btn" onclick="calc.inputNumber('7')">7</button>
+                    <button class="calc-btn" onclick="calc.inputNumber('8')">8</button>
+                    <button class="calc-btn" onclick="calc.inputNumber('9')">9</button>
+                    <button class="calc-btn calc-btn-operator" onclick="calc.inputOperator('*')">×</button>
+
+                    <button class="calc-btn" onclick="calc.inputNumber('4')">4</button>
+                    <button class="calc-btn" onclick="calc.inputNumber('5')">5</button>
+                    <button class="calc-btn" onclick="calc.inputNumber('6')">6</button>
+                    <button class="calc-btn calc-btn-operator" onclick="calc.inputOperator('-')">−</button>
+
+                    <button class="calc-btn" onclick="calc.inputNumber('1')">1</button>
+                    <button class="calc-btn" onclick="calc.inputNumber('2')">2</button>
+                    <button class="calc-btn" onclick="calc.inputNumber('3')">3</button>
+                    <button class="calc-btn calc-btn-operator" onclick="calc.inputOperator('+')">+</button>
+
+                    <button class="calc-btn" onclick="calc.inputNumber('0')" style="grid-column: span 2;">0</button>
+                    <button class="calc-btn" onclick="calc.inputDecimal()">.</button>
+                    <button class="calc-btn calc-btn-primary" onclick="calc.calculate()">=</button>
+                </div>
+
+                <!-- Memory Buttons -->
+                <div class="calc-memory-buttons">
+                    <button class="calc-mem-btn" onclick="calc.memoryClear()">MC</button>
+                    <button class="calc-mem-btn" onclick="calc.memoryRecall()">MR</button>
+                    <button class="calc-mem-btn" onclick="calc.memoryAdd()">M+</button>
+                    <button class="calc-mem-btn" onclick="calc.memorySubtract()">M−</button>
+                    <button class="calc-mem-btn" onclick="calc.memoryStore()">MS</button>
+                </div>
+
+                <!-- Percentage Button -->
+                <button class="calc-btn calc-btn-secondary" onclick="calc.percentage()" style="width: 100%; margin-top: 1rem;">
+                    Percentage (%)
+                </button>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2 class="related-title">More Calculators</h2>
+                <div class="related-grid">
+                    <a href="scientific-calculator.html" class="related-card">
+                        <h3>Scientific Calculator</h3>
+                        <p>Advanced math functions, trigonometry, logarithms</p>
+                    </a>
+                    <a href="programmer-calculator.html" class="related-card">
+                        <h3>Programmer Calculator</h3>
+                        <p>Binary, hex, octal conversions and bitwise operations</p>
+                    </a>
+                    <a href="percentage-calculator.html" class="related-card">
+                        <h3>Percentage Calculator</h3>
+                        <p>Calculate percentages, increases, and decreases</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">How to Use the Basic Calculator</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-card-title">Simple Operations</h3>
+                        <p class="info-card-text">Click number buttons (0-9) and operator buttons (+, −, ×, ÷) to build your calculation. Press = to get the result.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Keyboard Support</h3>
+                        <p class="info-card-text">Use your keyboard for faster input. Type numbers, operators, press Enter for equals, and Backspace to delete.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Memory Functions</h3>
+                        <p class="info-card-text">Store numbers with MS, recall with MR, add with M+, subtract with M−, and clear memory with MC.</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Common Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What operations does this calculator support?</h3>
+                        <p class="faq-answer">Addition (+), subtraction (−), multiplication (×), division (÷), percentages (%), and decimal numbers.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Can I use my keyboard?</h3>
+                        <p class="faq-answer">Yes! Type numbers 0-9, operators (+, -, *, /), decimal point (.), and press Enter to calculate. Backspace deletes the last digit, and Delete/C clears everything.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What does the memory function do?</h3>
+                        <p class="faq-answer">Memory lets you store a number (MS), recall it later (MR), add to it (M+), subtract from it (M−), or clear it (MC). Useful for complex calculations.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is this calculator accurate?</h3>
+                        <p class="faq-answer">Yes, it provides accurate results up to 10 decimal places and handles floating-point arithmetic correctly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/basic-calculator.js"></script>
+</body>
+</html>

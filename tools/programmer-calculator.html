@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free programmer calculator online. Convert between decimal, hexadecimal, octal, and binary. Perform bitwise operations (AND, OR, XOR, NOT) instantly.">
+    <meta name="keywords" content="programmer calculator, binary calculator, hex calculator, decimal to binary, hex to decimal, bitwise calculator, AND OR XOR calculator">
+    <meta name="robots" content="index, follow">
+    
+    <title>Programmer Calculator - Binary, Hex, Decimal & Bitwise Operations | RadonArc</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/programmer-calculator.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../tools.html" class="nav-link active">Tools</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Programmer Calculator</h1>
+            <p class="tool-page-description">Convert between number systems (DEC, HEX, OCT, BIN) and perform bitwise operations. Essential tool for programmers.</p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="calc-container calc-container-wide">
+                <!-- Base Selector -->
+                <div class="base-selector-main">
+                    <button class="base-btn-main active" data-base="10" onclick="progCalc.changeBase(10)">
+                        <span class="base-label">DEC</span>
+                        <span class="base-value" id="decValue">0</span>
+                    </button>
+                    <button class="base-btn-main" data-base="16" onclick="progCalc.changeBase(16)">
+                        <span class="base-label">HEX</span>
+                        <span class="base-value" id="hexValue">0</span>
+                    </button>
+                    <button class="base-btn-main" data-base="8" onclick="progCalc.changeBase(8)">
+                        <span class="base-label">OCT</span>
+                        <span class="base-value" id="octValue">0</span>
+                    </button>
+                    <button class="base-btn-main" data-base="2" onclick="progCalc.changeBase(2)">
+                        <span class="base-label">BIN</span>
+                        <span class="base-value" id="binValue">0</span>
+                    </button>
+                </div>
+
+                <!-- Display -->
+                <div class="calc-display-wrapper">
+                    <div class="calc-expression" id="calcExpression">0</div>
+                    <div class="calc-result" id="calcResult">0</div>
+                </div>
+
+                <!-- Programmer Calculator Grid -->
+                <div class="calc-grid calc-grid-programmer">
+                    <button class="calc-btn calc-btn-secondary" onclick="progCalc.clear()">C</button>
+                    <button class="calc-btn calc-btn-secondary" onclick="progCalc.clearEntry()">CE</button>
+                    <button class="calc-btn calc-btn-secondary" onclick="progCalc.backspace()">←</button>
+                    <button class="calc-btn calc-btn-operator" onclick="progCalc.inputOperator('/')">÷</button>
+
+                    <button class="calc-btn calc-btn-hex" onclick="progCalc.inputNumber('A')" disabled>A</button>
+                    <button class="calc-btn calc-btn-hex" onclick="progCalc.inputNumber('B')" disabled>B</button>
+                    <button class="calc-btn calc-btn-hex" onclick="progCalc.inputNumber('C')" disabled>C</button>
+                    <button class="calc-btn calc-btn-operator" onclick="progCalc.inputOperator('*')">×</button>
+
+                    <button class="calc-btn calc-btn-hex" onclick="progCalc.inputNumber('D')" disabled>D</button>
+                    <button class="calc-btn calc-btn-hex" onclick="progCalc.inputNumber('E')" disabled>E</button>
+                    <button class="calc-btn calc-btn-hex" onclick="progCalc.inputNumber('F')" disabled>F</button>
+                    <button class="calc-btn calc-btn-operator" onclick="progCalc.inputOperator('-')">−</button>
+
+                    <button class="calc-btn" onclick="progCalc.inputNumber('7')">7</button>
+                    <button class="calc-btn" onclick="progCalc.inputNumber('8')">8</button>
+                    <button class="calc-btn" onclick="progCalc.inputNumber('9')">9</button>
+                    <button class="calc-btn calc-btn-operator" onclick="progCalc.inputOperator('+')">+</button>
+
+                    <button class="calc-btn" onclick="progCalc.inputNumber('4')">4</button>
+                    <button class="calc-btn" onclick="progCalc.inputNumber('5')">5</button>
+                    <button class="calc-btn" onclick="progCalc.inputNumber('6')">6</button>
+                    <button class="calc-btn calc-btn-function" onclick="progCalc.bitwiseAnd()">AND</button>
+
+                    <button class="calc-btn" onclick="progCalc.inputNumber('1')">1</button>
+                    <button class="calc-btn" onclick="progCalc.inputNumber('2')">2</button>
+                    <button class="calc-btn" onclick="progCalc.inputNumber('3')">3</button>
+                    <button class="calc-btn calc-btn-function" onclick="progCalc.bitwiseOr()">OR</button>
+
+                    <button class="calc-btn" onclick="progCalc.inputNumber('0')" style="grid-column: span 2;">0</button>
+                    <button class="calc-btn calc-btn-function" onclick="progCalc.bitwiseXor()">XOR</button>
+                    <button class="calc-btn calc-btn-function" onclick="progCalc.bitwiseNot()">NOT</button>
+
+                    <button class="calc-btn calc-btn-primary" onclick="progCalc.calculate()" style="grid-column: span 4;">=</button>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2 class="related-title">Related Tools</h2>
+                <div class="related-grid">
+                    <a href="hex-to-decimal.html" class="related-card">
+                        <h3>Hex to Decimal</h3>
+                        <p>Convert hexadecimal numbers to decimal</p>
+                    </a>
+                    <a href="binary-to-decimal.html" class="related-card">
+                        <h3>Binary to Decimal</h3>
+                        <p>Convert binary numbers to decimal</p>
+                    </a>
+                    <a href="calculator.html" class="related-card">
+                        <h3>Basic Calculator</h3>
+                        <p>Simple arithmetic calculator</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">Number Systems & Operations</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-card-title">Number Systems</h3>
+                        <p class="info-card-text"><strong>DEC:</strong> Decimal (base 10) - 0-9<br>
+                        <strong>HEX:</strong> Hexadecimal (base 16) - 0-9, A-F<br>
+                        <strong>OCT:</strong> Octal (base 8) - 0-7<br>
+                        <strong>BIN:</strong> Binary (base 2) - 0-1</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Bitwise Operations</h3>
+                        <p class="info-card-text"><strong>AND:</strong> Both bits must be 1<br>
+                        <strong>OR:</strong> At least one bit is 1<br>
+                        <strong>XOR:</strong> Bits are different<br>
+                        <strong>NOT:</strong> Inverts all bits</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">How to Use</h3>
+                        <p class="info-card-text">Select a number system (DEC/HEX/OCT/BIN), enter your number, and see instant conversions to all other systems. Use bitwise operations for programming calculations.</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Common Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I convert decimal to hexadecimal?</h3>
+                        <p class="faq-answer">Enter your decimal number while in DEC mode. The HEX value will automatically display above. Click HEX to switch to hexadecimal mode.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What does AND mean in programming?</h3>
+                        <p class="faq-answer">AND is a bitwise operation that compares two numbers bit-by-bit. The result bit is 1 only if both input bits are 1. Example: 5 AND 3 = 1 (binary: 101 AND 011 = 001)</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Why can't I enter 9 in binary mode?</h3>
+                        <p class="faq-answer">Binary only uses digits 0 and 1. Numbers 2-9 are disabled in binary mode. Similarly, in octal mode (base 8), only 0-7 are available.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What are hexadecimal letters A-F?</h3>
+                        <p class="faq-answer">In hex, A=10, B=11, C=12, D=13, E=14, F=15. These extend the base-10 system to base-16.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/programmer-calculator.js"></script>
+</body>
+</html>

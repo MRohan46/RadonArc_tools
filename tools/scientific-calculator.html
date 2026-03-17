@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free scientific calculator online. Trigonometry (sin, cos, tan), logarithms, exponents, square roots, factorial, pi, and advanced math functions.">
+    <meta name="keywords" content="scientific calculator, trigonometry calculator, sin cos tan calculator, logarithm calculator, advanced calculator, math calculator">
+    <meta name="robots" content="index, follow">
+    
+    <title>Scientific Calculator - Advanced Math Functions | RadonArc</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/scientific-calculator.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../tools.html" class="nav-link active">Tools</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Scientific Calculator</h1>
+            <p class="tool-page-description">Advanced calculator with trigonometry, logarithms, exponents, and mathematical functions. Perfect for students and professionals.</p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="calc-container calc-container-wide">
+                <!-- Display -->
+                <div class="calc-display-wrapper">
+                    <div class="calc-expression" id="calcExpression">0</div>
+                    <div class="calc-result" id="calcResult">0</div>
+                </div>
+
+                <!-- Angle Mode Toggle -->
+                <div class="angle-mode-toggle">
+                    <button class="angle-btn active" data-mode="deg" onclick="sciCalc.setAngleMode('deg')">DEG</button>
+                    <button class="angle-btn" data-mode="rad" onclick="sciCalc.setAngleMode('rad')">RAD</button>
+                </div>
+
+                <!-- Scientific Calculator Grid -->
+                <div class="calc-grid calc-grid-scientific">
+                    <!-- Row 1 -->
+                    <button class="calc-btn calc-btn-secondary" onclick="sciCalc.clear()">C</button>
+                    <button class="calc-btn calc-btn-secondary" onclick="sciCalc.clearEntry()">CE</button>
+                    <button class="calc-btn calc-btn-secondary" onclick="sciCalc.backspace()">←</button>
+                    <button class="calc-btn calc-btn-operator" onclick="sciCalc.inputOperator('/')">÷</button>
+                    <button class="calc-btn calc-btn-operator" onclick="sciCalc.inputOperator('*')">×</button>
+
+                    <!-- Row 2 -->
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.sin()">sin</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.cos()">cos</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.tan()">tan</button>
+                    <button class="calc-btn" onclick="sciCalc.inputNumber('7')">7</button>
+                    <button class="calc-btn" onclick="sciCalc.inputNumber('8')">8</button>
+
+                    <!-- Row 3 -->
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.asin()">asin</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.acos()">acos</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.atan()">atan</button>
+                    <button class="calc-btn" onclick="sciCalc.inputNumber('9')">9</button>
+                    <button class="calc-btn calc-btn-operator" onclick="sciCalc.inputOperator('-')">−</button>
+
+                    <!-- Row 4 -->
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.log()">log</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.ln()">ln</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.sqrt()">√</button>
+                    <button class="calc-btn" onclick="sciCalc.inputNumber('4')">4</button>
+                    <button class="calc-btn" onclick="sciCalc.inputNumber('5')">5</button>
+
+                    <!-- Row 5 -->
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.power()">x²</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.powerY()">xʸ</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.exp()">eˣ</button>
+                    <button class="calc-btn" onclick="sciCalc.inputNumber('6')">6</button>
+                    <button class="calc-btn calc-btn-operator" onclick="sciCalc.inputOperator('+')">+</button>
+
+                    <!-- Row 6 -->
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.pi()">π</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.e()">e</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.factorial()">x!</button>
+                    <button class="calc-btn" onclick="sciCalc.inputNumber('1')">1</button>
+                    <button class="calc-btn" onclick="sciCalc.inputNumber('2')">2</button>
+
+                    <!-- Row 7 -->
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.openParen()">(</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.closeParen()">)</button>
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.reciprocal()">1/x</button>
+                    <button class="calc-btn" onclick="sciCalc.inputNumber('3')">3</button>
+                    <button class="calc-btn" onclick="sciCalc.inputNumber('0')">0</button>
+
+                    <!-- Row 8 -->
+                    <button class="calc-btn calc-btn-function" onclick="sciCalc.negate()">±</button>
+                    <button class="calc-btn" onclick="sciCalc.inputDecimal()">.</button>
+                    <button class="calc-btn calc-btn-primary" onclick="sciCalc.calculate()" style="grid-column: span 3;">=</button>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2 class="related-title">Related Tools</h2>
+                <div class="related-grid">
+                    <a href="calculator.html" class="related-card">
+                        <h3>Basic Calculator</h3>
+                        <p>Simple arithmetic operations for everyday math</p>
+                    </a>
+                    <a href="square-root-calculator.html" class="related-card">
+                        <h3>Square Root Calculator</h3>
+                        <p>Calculate square roots and nth roots</p>
+                    </a>
+                    <a href="percentage-calculator.html" class="related-card">
+                        <h3>Percentage Calculator</h3>
+                        <p>Calculate percentages, increases, and decreases</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">Scientific Calculator Functions</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-card-title">Trigonometry</h3>
+                        <p class="info-card-text"><strong>sin, cos, tan:</strong> Standard trig functions<br>
+                        <strong>asin, acos, atan:</strong> Inverse trig functions<br>
+                        Works in degrees (DEG) or radians (RAD)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Logarithms & Exponents</h3>
+                        <p class="info-card-text"><strong>log:</strong> Base 10 logarithm<br>
+                        <strong>ln:</strong> Natural logarithm (base e)<br>
+                        <strong>x², xʸ:</strong> Power functions<br>
+                        <strong>eˣ:</strong> Exponential function</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Advanced Functions</h3>
+                        <p class="info-card-text"><strong>√:</strong> Square root<br>
+                        <strong>x!:</strong> Factorial<br>
+                        <strong>1/x:</strong> Reciprocal<br>
+                        <strong>π, e:</strong> Mathematical constants</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Common Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What's the difference between DEG and RAD?</h3>
+                        <p class="faq-answer">DEG (degrees) and RAD (radians) are two units for measuring angles. Use DEG for most calculations (360° in a circle). RAD is used in advanced mathematics (2π radians in a circle).</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I calculate sin(30)?</h3>
+                        <p class="faq-answer">Make sure you're in DEG mode, type 30, then press the sin button. The result will be 0.5.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What does ln mean?</h3>
+                        <p class="faq-answer">ln is the natural logarithm, which is log base e (where e ≈ 2.71828). It's the inverse of eˣ.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Can I use parentheses for complex calculations?</h3>
+                        <p class="faq-answer">Yes! Use the ( and ) buttons to group operations. For example: (5+3)×2 = 16</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/scientific-calculator.js"></script>
+</body>
+</html>

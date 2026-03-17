@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online age calculator. Calculate your exact age in years, months, days, hours, and minutes from your birth date. Fast, accurate, and private.">
+    <meta name="keywords" content="age calculator, calculate age, age in days, age in months, exact age, birth date calculator, age from date of birth">
+    <meta name="robots" content="index, follow">
+    
+    <title>Age Calculator - Calculate Your Exact Age | RadonArc</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/age-calculator.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../tools.html" class="nav-link active">Tools</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Age Calculator</h1>
+            <p class="tool-page-description">Calculate your exact age in years, months, days, hours, and minutes. Accurate and instant results.</p>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="calculator-wrapper">
+                <!-- Input Card -->
+                <div class="calculator-card">
+                    <h2 class="calculator-card-title">Enter Your Birth Date</h2>
+                    
+                    <div class="input-group">
+                        <label for="birthDate" class="input-label">Date of Birth</label>
+                        <input 
+                            type="date" 
+                            id="birthDate" 
+                            class="date-input"
+                            max=""
+                        >
+                    </div>
+
+                    <div class="input-group">
+                        <label for="currentDate" class="input-label">Calculate Age As Of (Optional)</label>
+                        <input 
+                            type="date" 
+                            id="currentDate" 
+                            class="date-input"
+                        >
+                        <p class="input-hint">Leave empty to calculate age as of today</p>
+                    </div>
+
+                    <button id="calculateBtn" class="calculate-btn">
+                        Calculate Age
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Results Card -->
+                <div class="results-card" id="resultsCard" style="display: none;">
+                    <h2 class="results-title">Your Age</h2>
+                    
+                    <div class="age-primary">
+                        <div class="age-number" id="ageYears">0</div>
+                        <div class="age-label">Years Old</div>
+                    </div>
+
+                    <div class="age-breakdown">
+                        <div class="age-detail">
+                            <div class="age-detail-value" id="ageMonths">0</div>
+                            <div class="age-detail-label">Months</div>
+                        </div>
+                        <div class="age-detail">
+                            <div class="age-detail-value" id="ageDays">0</div>
+                            <div class="age-detail-label">Days</div>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="age-extras">
+                        <div class="age-extra-item">
+                            <span class="age-extra-label">Total Months:</span>
+                            <span class="age-extra-value" id="totalMonths">0</span>
+                        </div>
+                        <div class="age-extra-item">
+                            <span class="age-extra-label">Total Weeks:</span>
+                            <span class="age-extra-value" id="totalWeeks">0</span>
+                        </div>
+                        <div class="age-extra-item">
+                            <span class="age-extra-label">Total Days:</span>
+                            <span class="age-extra-value" id="totalDays">0</span>
+                        </div>
+                        <div class="age-extra-item">
+                            <span class="age-extra-label">Total Hours:</span>
+                            <span class="age-extra-value" id="totalHours">0</span>
+                        </div>
+                        <div class="age-extra-item">
+                            <span class="age-extra-label">Total Minutes:</span>
+                            <span class="age-extra-value" id="totalMinutes">0</span>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="next-birthday">
+                        <h3 class="next-birthday-title">Next Birthday</h3>
+                        <p class="next-birthday-date" id="nextBirthdayDate">-</p>
+                        <p class="next-birthday-countdown" id="nextBirthdayCountdown">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">How to Use the Age Calculator</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-number">1</div>
+                        <h3 class="info-card-title">Enter Birth Date</h3>
+                        <p class="info-card-text">Select your date of birth using the date picker.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-number">2</div>
+                        <h3 class="info-card-title">Optional: Set Reference Date</h3>
+                        <p class="info-card-text">Choose a specific date to calculate your age as of that date, or leave empty for today.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-number">3</div>
+                        <h3 class="info-card-title">Get Instant Results</h3>
+                        <p class="info-card-text">See your exact age in years, months, days, and more detailed breakdowns.</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How accurate is this age calculator?</h3>
+                        <p class="faq-answer">This calculator is 100% accurate. It accounts for leap years and calculates your exact age down to the minute.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is my birth date stored or tracked?</h3>
+                        <p class="faq-answer">No. All calculations happen in your browser. Your birth date is never sent to our servers or stored anywhere.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is the "Calculate Age As Of" field for?</h3>
+                        <p class="faq-answer">This optional field lets you calculate what your age was or will be on a specific date. Leave it empty to calculate your current age.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Can I calculate someone else's age?</h3>
+                        <p class="faq-answer">Yes! Just enter their birth date. This tool can calculate anyone's age.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/age-calculator.js"></script>
+</body>
+</html>
