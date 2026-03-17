@@ -1,0 +1,74 @@
+Folder PATH listing
+Volume serial number is B26B-E019
+C:.
+|   folder-structure.txt
+|   index.html
+|   projects.html
+|   robots.txt
+|   sitemap.xml
+|   tools.html
+|   
++---assets
+|   +---css
+|   |       styles.css
+|   |       tool-page-styles (1).css
+|   |       tool-page-styles.css
+|   |       
+|   +---images
+|   \---js
+|       |   script.js
+|       |   
+|       +---calcs
+|       |       age-calculator.js
+|       |       basic-calculator.js
+|       |       calculator.js
+|       |       percentage-calculator.js
+|       |       programmer-calculator.js
+|       |       scientific-calculator.js
+|       |       
+|       +---converters
+|       |       binary-to-decimal.js
+|       |       binary-to-hex.js
+|       |       decimal-to-binary.js
+|       |       decimal-to-hex.js
+|       |       hex-to-binary.js
+|       |       hex-to-decimal.js
+|       |       octal-converter.js
+|       |       octal-to-binary.js
+|       |       octal-to-decimal.js
+|       |       octal-to-hex.js
+|       |       
+|       \---math-tools
+|               exponent-calculator.js
+|               factorial-calculator.js
+|               log-calculator.js
+|               square-root-calculator.js
+|               trigonometry-calculator.js
+|               
+\---tools
+    +---calcs
+    |       age-calculator.html
+    |       calculator.html
+    |       percentage-calculator.html
+    |       programmer-calculator.html
+    |       scientific-calculator.html
+    |       
+    +---converters
+    |       binary-to-decimal.html
+    |       binary-to-hex.html
+    |       decimal-to-binary.html
+    |       decimal-to-hex.html
+    |       hex-to-binary.html
+    |       hex-to-decimal.html
+    |       octal-converter.html
+    |       octal-to-binary.html
+    |       octal-to-decimal.html
+    |       octal-to-hex.html
+    |       
+    \---math_tools
+            exponent-calculator.html
+            factorial-calculator.html
+            log-calculator.html
+            square-root-calculator.html
+            trigonometry-calculator.html
+            
