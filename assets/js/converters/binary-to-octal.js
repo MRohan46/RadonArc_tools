@@ -1,5 +1,5 @@
 // ========================================
-// Binary to Hex Converter Logic
+// Binary to Octal Converter Logic
 // ========================================
 
 const converter = {
@@ -56,14 +56,14 @@ const converter = {
 
   convert() {
     const binaryInput = document.getElementById("binaryInput");
-    const hexOutput = document.getElementById("hexOutput");
+    const octalOutput = document.getElementById("octalOutput");
     const explanationBox = document.getElementById("explanationBox");
-    const groupingGrid = document.getElementById("groupingGrid");
+    const binaryGrouping = document.getElementById("binaryGrouping");
 
     let binary = binaryInput.value.trim();
 
     if (binary === "") {
-      hexOutput.textContent = "0";
+      octalOutput.textContent = "0";
       this.updateExplanation("0", "0");
       this.updateGrouping("0");
       return;
@@ -73,45 +73,48 @@ const converter = {
     const validBinary = /^[01]+$/.test(binary);
 
     if (!validBinary) {
-      hexOutput.textContent = "Invalid";
+      octalOutput.textContent = "Invalid Binary";
       explanationBox.style.opacity = "0.5";
       return;
     }
 
-    // Pad binary to multiple of 4
-    const paddedBinary = binary.padStart(Math.ceil(binary.length / 4) * 4, "0");
+    // Pad binary to multiple of 3
+    const paddedBinary = binary.padStart(Math.ceil(binary.length / 3) * 3, "0");
 
-    // Group into 4-bit chunks and convert each to hex
+    // Group into 3-bit chunks and convert each to octal
     const groups = [];
-    let hex = "";
+    let octal = "";
 
-    for (let i = 0; i < paddedBinary.length; i += 4) {
-      const group = paddedBinary.substr(i, 4);
+    for (let i = 0; i < paddedBinary.length; i += 3) {
+      const group = paddedBinary.substr(i, 3);
       groups.push(group);
       const decimal = parseInt(group, 2);
-      hex += decimal.toString(16).toUpperCase();
+      octal += decimal.toString(8);
     }
 
-    hexOutput.textContent = hex;
+    // Remove leading zeros from octal (but keep single zero)
+    const cleanOctal = octal.replace(/^0+/, "") || "0";
+
+    octalOutput.textContent = cleanOctal;
 
     // Update explanation
-    this.updateExplanation(binary, groups, hex);
+    this.updateExplanation(binary, groups, cleanOctal);
     explanationBox.style.opacity = "1";
 
     // Update grouping visualizer
     this.updateGrouping(binary, groups);
   },
 
-  updateExplanation(binary, groups, hex) {
+  updateExplanation(binary, groups, octal) {
     const explanationContent = document.getElementById("explanationContent");
 
-    if (binary.length <= 4) {
-      const decimal = parseInt(binary.padStart(4, "0"), 2);
+    if (binary.length <= 3) {
+      const decimal = parseInt(binary.padStart(3, "0"), 2);
       explanationContent.innerHTML = `
                 <p class="explanation-step">Binary: ${binary}</p>
-                <p class="explanation-step">Pad to 4 bits: ${binary.padStart(4, "0")}</p>
-                <p class="explanation-step">${binary.padStart(4, "0")} = ${decimal} in decimal</p>
-                <p class="explanation-step">${decimal} in hex = ${hex}</p>
+                <p class="explanation-step">Pad to 3 bits: ${binary.padStart(3, "0")}</p>
+                <p class="explanation-step">${binary.padStart(3, "0")} = ${decimal} in decimal</p>
+                <p class="explanation-step">${decimal} in octal = ${octal}</p>
             `;
       return;
     }
@@ -123,42 +126,42 @@ const converter = {
     for (let i = 0; i < groups.length; i++) {
       const group = groups[i];
       const decimal = parseInt(group, 2);
-      const hexDigit = decimal.toString(16).toUpperCase();
-      steps.push(`${group} = ${decimal} = ${hexDigit}`);
-      groupValues.push(hexDigit);
+      const octalDigit = decimal.toString(8);
+      steps.push(`${group} = ${octalDigit}`);
+      groupValues.push(octalDigit);
     }
 
     explanationContent.innerHTML = `
-            <p class="explanation-step">Group binary into 4-bit chunks (from left):</p>
+            <p class="explanation-step">Group binary into 3-bit chunks (from left):</p>
             <p class="explanation-step">${steps.join(" | ")}</p>
-            <p class="explanation-step">Combine hex digits: ${groupValues.join("")}</p>
+            <p class="explanation-step">Combine octal digits: ${groupValues.join("")}</p>
         `;
   },
 
   updateGrouping(binary, groups) {
-    const groupingGrid = document.getElementById("groupingGrid");
+    const binaryGrouping = document.getElementById("binaryGrouping");
 
     if (!groups) {
-      // Pad binary to multiple of 4
+      // Pad binary to multiple of 3
       const paddedBinary = binary.padStart(
-        Math.ceil(binary.length / 4) * 4,
+        Math.ceil(binary.length / 3) * 3,
         "0",
       );
       groups = [];
 
-      for (let i = 0; i < paddedBinary.length; i += 4) {
-        groups.push(paddedBinary.substr(i, 4));
+      for (let i = 0; i < paddedBinary.length; i += 3) {
+        groups.push(paddedBinary.substr(i, 3));
       }
     }
 
-    let gridHTML = '<div class="grouping-row">';
+    let html = '<div class="grouping-row">';
 
     for (let i = 0; i < groups.length; i++) {
       const group = groups[i];
       const decimal = parseInt(group, 2);
-      const hexDigit = decimal.toString(16).toUpperCase();
+      const octalDigit = decimal.toString(8);
 
-      gridHTML += `
+      html += `
                 <div class="grouping-group">
                     <div class="grouping-bits">
                         ${group
@@ -169,17 +172,17 @@ const converter = {
                           .join("")}
                     </div>
                     <div class="grouping-arrow">↓</div>
-                    <div class="grouping-hex">${hexDigit}</div>
+                    <div class="grouping-octal">${octalDigit}</div>
                 </div>
             `;
 
       if (i < groups.length - 1) {
-        gridHTML += '<div class="grouping-plus">+</div>';
+        html += '<div class="grouping-plus">+</div>';
       }
     }
 
-    gridHTML += "</div>";
-    groupingGrid.innerHTML = gridHTML;
+    html += "</div>";
+    binaryGrouping.innerHTML = html;
   },
 
   setBinary(value) {
@@ -188,11 +191,11 @@ const converter = {
   },
 
   swap() {
-    const hexValue = document.getElementById("hexOutput").textContent;
+    const octalValue = document.getElementById("octalOutput").textContent;
 
-    if (hexValue !== "Invalid") {
-      // Redirect to hex-to-binary page with the hex value
-      window.location.href = `hex-to-binary.html?value=${hexValue}`;
+    if (octalValue !== "Invalid") {
+      // Redirect to octal-to-binary page with the octal value
+      window.location.href = `octal-to-binary.html?value=${octalValue}`;
     }
   },
 };

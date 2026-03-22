@@ -1,0 +1,148 @@
+{
+  "calculators": [
+    {
+      "name": "Age Calculator",
+      "link": "tools/calcs/age-calculator.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='4' width='18' height='18' rx='2'/><path d='M3 9h18'/><path d='M8 2v4M16 2v4'/><circle cx='8' cy='13' r='.8' fill='currentColor'/><circle cx='12' cy='13' r='.8' fill='currentColor'/><circle cx='16' cy='13' r='.8' fill='currentColor'/><circle cx='8' cy='17' r='.8' fill='currentColor'/><circle cx='12' cy='17' r='.8' fill='currentColor'/><circle cx='16' cy='17' r='.8' fill='currentColor'/></svg>",
+      "desc": "Calculate precise age in years, months, and days from birth date",
+      "status": "Live"
+    },
+    {
+      "name": "Calculator",
+      "link": "tools/calcs/calculator.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='2' width='16' height='20' rx='2'/><path d='M8 6h8'/><rect x='8' y='11' width='2' height='2' rx='.4'/><rect x='11' y='11' width='2' height='2' rx='.4'/><rect x='14' y='11' width='2' height='2' rx='.4'/><rect x='8' y='15' width='2' height='2' rx='.4'/><rect x='11' y='15' width='2' height='2' rx='.4'/><rect x='14' y='15' width='5' height='2' rx='.4'/></svg>",
+      "desc": "Basic and scientific calculations with clean interface",
+      "status": "Live"
+    },
+    {
+      "name": "Percentage Calculator",
+      "link": "tools/calcs/percentage-calculator.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><line x1='19' y1='5' x2='5' y2='19'/><circle cx='6.5' cy='6.5' r='2.5'/><circle cx='17.5' cy='17.5' r='2.5'/></svg>",
+      "desc": "Quickly calculate percentages, increases, decreases, and percentage differences",
+      "status": "Live"
+    },
+    {
+      "name": "Programmer Calculator",
+      "link": "tools/calcs/programmer-calculator.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M7 8l-4 4 4 4'/><path d='M17 8l4 4-4 4'/><path d='M14 4l-4 16'/></svg>",
+      "desc": "Perform binary, hexadecimal, octal, and bitwise operations with ease",
+      "status": "Live"
+    },
+    {
+      "name": "Scientific Calculator",
+      "link": "tools/calcs/scientific-calculator.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M4 7h16M4 12h10M4 17h7'/><path d='M18 14v6m-3-3h6'/></svg>",
+      "desc": "Advanced calculations including trigonometry, logarithms, exponents, and more",
+      "status": "Live"
+    }
+  ],
+  "converters": [
+    {
+      "name": "Binary to Decimal",
+      "link": "tools/converters/binary-to-decimal.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M4 17l4-8 4 8'/><path d='M6 13h4'/><path d='M16 7h4l-4 5h4'/></svg>",
+      "desc": "Convert binary numbers to decimal format",
+      "status": "Live"
+    },
+    {
+      "name": "Binary to Hex",
+      "link": "tools/converters/binary-to-hex.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='9' width='7' height='6' rx='1'/><rect x='14' y='9' width='7' height='6' rx='1'/><path d='M10 12h4'/><path d='M16 7l3 5-3 5'/></svg>",
+      "desc": "Convert binary numbers to hexadecimal format",
+      "status": "Live"
+    },
+    {
+      "name": "Decimal to Binary",
+      "link": "tools/converters/decimal-to-binary.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M3 7h4l4 10 4-10h4'/><path d='M19 17l2-2-2-2'/></svg>",
+      "desc": "Convert decimal numbers to binary format",
+      "status": "Live"
+    },
+    {
+      "name": "Decimal to Hex",
+      "link": "tools/converters/decimal-to-hex.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M15 7l5 5-5 5'/><path d='M5 7v10'/></svg>",
+      "desc": "Convert decimal numbers to hexadecimal format",
+      "status": "Live"
+    },
+    {
+      "name": "Hex to Binary",
+      "link": "tools/converters/hex-to-binary.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M3 9l3-3 3 3M6 6v12'/><path d='M15 15l3 3 3-3M18 18V6'/></svg>",
+      "desc": "Convert hexadecimal numbers to binary format",
+      "status": "Live"
+    },
+    {
+      "name": "Hex to Decimal",
+      "link": "tools/converters/hex-to-decimal.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M5 12h14M9 17l-5-5 5-5'/><path d='M19 7v10'/></svg>",
+      "desc": "Convert hexadecimal numbers to decimal format",
+      "status": "Live"
+    },
+    {
+      "name": "Octal Converter",
+      "link": "tools/converters/octal-converter.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M8 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3'/><path d='M16 3h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3'/><path d='M12 8v8M9 11l3-3 3 3'/></svg>",
+      "desc": "Convert numbers between octal format and others",
+      "status": "Live"
+    },
+    {
+      "name": "Octal to Binary",
+      "link": "tools/converters/octal-to-binary.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='9' cy='12' r='4'/><path d='M17 8l2 2 2-2M17 16l2-2 2 2M19 10v4'/></svg>",
+      "desc": "Convert octal numbers to binary format",
+      "status": "Live"
+    },
+    {
+      "name": "Octal to Decimal",
+      "link": "tools/converters/octal-to-decimal.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M3 17l9-14 9 14'/><path d='M7 13h10'/></svg>",
+      "desc": "Convert octal numbers to decimal format",
+      "status": "Live"
+    },
+    {
+      "name": "Octal to Hex",
+      "link": "tools/converters/octal-to-hex.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M4 12h16'/><path d='M4 6l8 6-8 6'/></svg>",
+      "desc": "Convert octal numbers to hexadecimal format",
+      "status": "Live"
+    }
+  ],
+  "math_tools": [
+    {
+      "name": "Exponent Calculator",
+      "link": "tools/math_tools/exponent-calculator.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M6 12h12M12 6v12'/><path d='M17 7l2-2'/><circle cx='19' cy='5' r='1.5' fill='currentColor' stroke='none'/></svg>",
+      "desc": "Calculate powers and exponents",
+      "status": "Live"
+    },
+    {
+      "name": "Factorial Calculator",
+      "link": "tools/math_tools/factorial-calculator.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M5 20h14M8 20V8l4-4 4 4v12'/><path d='M10 12h4'/></svg>",
+      "desc": "Calculate factorial of numbers",
+      "status": "Live"
+    },
+    {
+      "name": "Log Calculator",
+      "link": "tools/math_tools/log-calculator.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M3 20c3-8 6-14 9-14s6 6 9 6'/><path d='M3 20h2'/></svg>",
+      "desc": "Calculate logarithms with different bases",
+      "status": "Live"
+    },
+    {
+      "name": "Square Root Calculator",
+      "link": "tools/math_tools/square-root-calculator.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M3 12l3 0 2 6 5-14 2 8 6 0'/></svg>",
+      "desc": "Calculate square roots quickly",
+      "status": "Live"
+    },
+    {
+      "name": "Trigonometry Calculator",
+      "link": "tools/math_tools/trigonometry-calculator.html",
+      "icon": "<svg width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M3 18h18L12 4z'/><path d='M12 4v14M9 14a4 4 0 0 0 6 0'/></svg>",
+      "desc": "Perform trigonometric calculations like sin, cos, tan",
+      "status": "Live"
+    }
+  ]
+}

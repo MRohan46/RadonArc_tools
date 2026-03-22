@@ -1,5 +1,5 @@
 // ========================================
-// Decimal to Binary Converter Logic
+// Decimal to Octal Converter Logic
 // ========================================
 
 const converter = {
@@ -56,16 +56,14 @@ const converter = {
 
   convert() {
     const decimalInput = document.getElementById("decimalInput");
-    const binaryOutput = document.getElementById("binaryOutput");
+    const octalOutput = document.getElementById("octalOutput");
     const explanationBox = document.getElementById("explanationBox");
-    const bitGrid = document.getElementById("bitGrid");
 
     let decimal = decimalInput.value.trim();
 
     if (decimal === "" || decimal === "-") {
-      binaryOutput.textContent = "0";
+      octalOutput.textContent = "0";
       this.updateExplanation("0", "0");
-      this.updateBitGrid(0);
       return;
     }
 
@@ -73,34 +71,31 @@ const converter = {
     const decimalNum = parseInt(decimal, 10);
 
     if (isNaN(decimalNum) || decimalNum < 0) {
-      binaryOutput.textContent = "Invalid";
+      octalOutput.textContent = "Invalid";
       explanationBox.style.opacity = "0.5";
       return;
     }
 
-    // Convert to binary
-    const binary = decimalNum.toString(2);
+    // Convert to octal
+    const octal = decimalNum.toString(8);
 
     // Format with commas for thousands in decimal display
     decimalInput.value = decimalNum.toLocaleString();
 
-    binaryOutput.textContent = binary;
+    octalOutput.textContent = octal;
 
     // Update explanation
-    this.updateExplanation(decimalNum, binary);
+    this.updateExplanation(decimalNum, octal);
     explanationBox.style.opacity = "1";
-
-    // Update bit grid
-    this.updateBitGrid(decimalNum);
   },
 
-  updateExplanation(decimal, binary) {
+  updateExplanation(decimal, octal) {
     const explanationContent = document.getElementById("explanationContent");
 
-    if (decimal < 2) {
+    if (decimal < 8) {
       explanationContent.innerHTML = `
-                <p class="explanation-step">${decimal} is less than 2</p>
-                <p class="explanation-step">Single digit: ${decimal} = ${binary}</p>
+                <p class="explanation-step">${decimal} is less than 8</p>
+                <p class="explanation-step">Single digit: ${decimal} = ${octal}</p>
             `;
       return;
     }
@@ -111,51 +106,19 @@ const converter = {
     let quotient = decimal;
 
     while (quotient > 0) {
-      const remainder = quotient % 2;
+      const remainder = quotient % 8;
       remainders.unshift(remainder.toString());
 
       steps.push(
-        `${quotient} ÷ 2 = ${Math.floor(quotient / 2)} remainder ${remainder}`,
+        `${quotient} ÷ 8 = ${Math.floor(quotient / 8)} remainder ${remainder}`,
       );
-      quotient = Math.floor(quotient / 2);
+      quotient = Math.floor(quotient / 8);
     }
 
     explanationContent.innerHTML = `
             <p class="explanation-step">${steps.join('</p><p class="explanation-step">')}</p>
-            <p class="explanation-step">Read remainders from bottom to top: ${binary}</p>
+            <p class="explanation-step">Read remainders from bottom to top: ${octal}</p>
         `;
-  },
-
-  updateBitGrid(decimal) {
-    const bitGrid = document.getElementById("bitGrid");
-    const binary = decimal.toString(2);
-
-    // Create bit place values
-    const bits = binary.split("").reverse();
-    let gridHTML = '<div class="bit-placeholders">';
-
-    // Show up to 16 bits for readability
-    const maxBits = Math.max(8, Math.ceil(bits.length / 4) * 4);
-
-    for (let i = maxBits - 1; i >= 0; i--) {
-      const bitValue = Math.pow(2, i);
-      const hasBit = i < bits.length ? bits[i] === "1" : false;
-
-      gridHTML += `
-                <div class="bit-cell ${hasBit ? "bit-active" : ""}">
-                    <div class="bit-value">${hasBit ? "1" : "0"}</div>
-                    <div class="bit-place">${bitValue.toLocaleString()}</div>
-                </div>
-            `;
-
-      // Add spacing every 4 bits
-      if (i % 4 === 0 && i > 0) {
-        gridHTML += '<div class="bit-spacer"></div>';
-      }
-    }
-
-    gridHTML += "</div>";
-    bitGrid.innerHTML = gridHTML;
   },
 
   setDecimal(value) {
@@ -164,11 +127,11 @@ const converter = {
   },
 
   swap() {
-    const binaryValue = document.getElementById("binaryOutput").textContent;
+    const octalValue = document.getElementById("octalOutput").textContent;
 
-    if (binaryValue !== "Invalid") {
-      // Redirect to binary-to-decimal page with the binary value
-      window.location.href = `binary-to-decimal.html?value=${binaryValue}`;
+    if (octalValue !== "Invalid") {
+      // Redirect to octal-to-decimal page with the octal value
+      window.location.href = `octal-to-decimal.html?value=${octalValue}`;
     }
   },
 };
