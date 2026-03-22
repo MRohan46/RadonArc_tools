@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online hex to decimal converter. Convert hexadecimal numbers to decimal instantly. Fast, accurate, and easy-to-use hex to decimal calculator.">
+    <meta name="keywords" content="hex to decimal, hexadecimal to decimal, hex converter, hex calculator, hex to decimal converter, convert hex to decimal">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hex to Decimal Converter - Free Online Tool | RadonArc">
+    <meta property="og:description" content="Convert hexadecimal numbers to decimal instantly. Fast, accurate, and private.">
+    <meta property="og:type" content="website">
+    
+    <title>Hex to Decimal Converter - Convert Hexadecimal to Decimal | RadonArc</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/converters/hex-to-decimal.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../../tools.html" class="nav-link active">Tools</a>
+                <a href="../../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Hex to Decimal Converter</h1>
+            <p class="tool-page-description">Convert hexadecimal numbers to decimal instantly. Fast, accurate, and easy to use.</p>
+        </div>
+    </section>
+
+    <!-- Converter Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="calc-container">
+                <!-- Dual Input/Output Display -->
+                <div class="converter-dual">
+                    <div class="converter-input-group">
+                        <label class="converter-label">Hexadecimal</label>
+                        <input type="text" id="hexInput" class="converter-input" placeholder="e.g., FF, 1A3, 2B" value="FF">
+                        <div class="input-hint">Valid characters: 0-9, A-F</div>
+                    </div>
+                    
+                    <div class="converter-swap">
+                        <button id="swapBtn" class="swap-btn" onclick="converter.swap()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 10l5-5 5 5"></path>
+                                <path d="M7 14l5 5 5-5"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="converter-output-group">
+                        <label class="converter-label">Decimal</label>
+                        <div class="converter-output" id="decimalOutput">255</div>
+                    </div>
+                </div>
+
+                <!-- Quick Conversions Table -->
+                <div class="quick-conversions">
+                    <h3 class="quick-title">Common Hex to Decimal Conversions</h3>
+                    <div class="quick-grid">
+                        <div class="quick-item" onclick="converter.setHex('0')">
+                            <span class="quick-hex">0</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">0</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('1')">
+                            <span class="quick-hex">1</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">1</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('A')">
+                            <span class="quick-hex">A</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">10</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('F')">
+                            <span class="quick-hex">F</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">15</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('10')">
+                            <span class="quick-hex">10</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">16</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('FF')">
+                            <span class="quick-hex">FF</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">255</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('100')">
+                            <span class="quick-hex">100</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">256</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('FFF')">
+                            <span class="quick-hex">FFF</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">4095</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step-by-Step Explanation -->
+                <div class="explanation-box" id="explanationBox">
+                    <h3 class="explanation-title">How to Convert Hex to Decimal</h3>
+                    <div class="explanation-content" id="explanationContent">
+                        <p class="explanation-step">FF = (15 × 16¹) + (15 × 16⁰)</p>
+                        <p class="explanation-step">= (15 × 16) + (15 × 1)</p>
+                        <p class="explanation-step">= 240 + 15 = 255</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2 class="related-title">Related Converters</h2>
+                <div class="related-grid">
+                    <a href="decimal-to-hex.html" class="related-card">
+                        <h3>Decimal to Hex</h3>
+                        <p>Convert decimal numbers to hexadecimal</p>
+                    </a>
+                    <a href="binary-to-hex.html" class="related-card">
+                        <h3>Binary to Hex</h3>
+                        <p>Convert binary numbers to hexadecimal</p>
+                    </a>
+                    <a href="../../programmer-calculator.html" class="related-card">
+                        <h3>Programmer Calculator</h3>
+                        <p>Full suite of number system conversions</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">About Hexadecimal Numbers</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-card-title">What is Hexadecimal?</h3>
+                        <p class="info-card-text">Hexadecimal (base-16) uses 16 digits: 0-9 and A-F, where A=10, B=11, C=12, D=13, E=14, F=15. It's commonly used in computing as a human-friendly representation of binary data.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Common Uses</h3>
+                        <p class="info-card-text">• HTML color codes (#FF0000)<br>• Memory addresses<br>• MAC addresses<br>• Assembly language<br>• Debugging and programming</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Conversion Formula</h3>
+                        <p class="info-card-text">Multiply each digit by 16 raised to its position power (from right, starting at 0). Example: 1A3 = (1×16²) + (10×16¹) + (3×16⁰) = 419</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Common Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I convert hex to decimal manually?</h3>
+                        <p class="faq-answer">Write the digits, multiply each by 16 raised to its position power (starting from 0 on the right), then sum all results. For example, 2F = (2×16¹) + (15×16⁰) = 32 + 15 = 47.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What does FF in hex represent in decimal?</h3>
+                        <p class="faq-answer">FF in hex equals 255 in decimal. It's the maximum value for a single byte (8 bits) and is commonly used in HTML color codes for full red, green, or blue.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Why are letters used in hex?</h3>
+                        <p class="faq-answer">Letters A-F represent values 10-15 because we need single digits for base-16. Without letters, we'd have to write 10 as two digits, which would be confusing.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Is hex case-sensitive?</h3>
+                        <p class="faq-answer">No, both uppercase and lowercase are accepted. FF and ff both represent 255. This converter accepts both formats.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/converters/hex-to-decimal.js"></script>
+</body>
+</html>

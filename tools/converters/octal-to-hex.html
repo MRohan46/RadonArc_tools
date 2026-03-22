@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online octal to hex converter. Convert octal numbers to hexadecimal instantly. Perfect for programming and digital systems.">
+    <meta name="keywords" content="octal to hex, octal to hexadecimal, convert octal to hex, oct to hex, base 8 to base 16">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Octal to Hex Converter - Free Online Tool | RadonArc">
+    <meta property="og:description" content="Convert octal numbers to hexadecimal instantly. Fast, accurate, and easy to use.">
+    <meta property="og:type" content="website">
+    
+    <title>Octal to Hex Converter - Convert Octal to Hexadecimal | RadonArc</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/converters/octal-to-hex.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../tools.html" class="nav-link active">Tools</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Octal to Hex Converter</h1>
+            <p class="tool-page-description">Convert octal numbers (base-8) to hexadecimal (base-16) instantly. Two-step conversion: octal → binary → hex.</p>
+        </div>
+    </section>
+
+    <!-- Converter Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="calc-container">
+                <!-- Dual Input/Output Display -->
+                <div class="converter-dual">
+                    <div class="converter-input-group">
+                        <label class="converter-label">Octal</label>
+                        <input type="text" id="octalInput" class="converter-input" placeholder="e.g., 755, 644, 777" value="755">
+                        <div class="input-hint">Valid digits: 0-7 only</div>
+                    </div>
+                    
+                    <div class="converter-swap">
+                        <button id="swapBtn" class="swap-btn" onclick="converter.swap()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 10l5-5 5 5"></path>
+                                <path d="M7 14l5 5 5-5"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="converter-output-group">
+                        <label class="converter-label">Hexadecimal</label>
+                        <div class="converter-output" id="hexOutput">1ED</div>
+                    </div>
+                </div>
+
+                <!-- Two-Step Conversion Visualizer -->
+                <div class="two-step-conversion">
+                    <h3 class="step-title">Conversion Process</h3>
+                    <div class="step-visualizer" id="stepVisualizer">
+                        <div class="step-group">
+                            <div class="step-label">Octal</div>
+                            <div class="step-value" id="stepOctal">755</div>
+                        </div>
+                        <div class="step-arrow">→</div>
+                        <div class="step-group">
+                            <div class="step-label">Binary</div>
+                            <div class="step-value binary-step" id="stepBinary">111101101</div>
+                        </div>
+                        <div class="step-arrow">→</div>
+                        <div class="step-group">
+                            <div class="step-label">Hex</div>
+                            <div class="step-value" id="stepHex">1ED</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Conversions Table -->
+                <div class="quick-conversions">
+                    <h3 class="quick-title">Common Octal to Hex Conversions</h3>
+                    <div class="quick-grid">
+                        <div class="quick-item" onclick="converter.setOctal('0')">
+                            <span class="quick-octal">0</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-hex">0</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('7')">
+                            <span class="quick-octal">7</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-hex">7</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('10')">
+                            <span class="quick-octal">10</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-hex">8</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('77')">
+                            <span class="quick-octal">77</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-hex">3F</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('100')">
+                            <span class="quick-octal">100</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-hex">40</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('755')">
+                            <span class="quick-octal">755</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-hex">1ED</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('777')">
+                            <span class="quick-octal">777</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-hex">1FF</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step-by-Step Explanation -->
+                <div class="explanation-box" id="explanationBox">
+                    <h3 class="explanation-title">How to Convert Octal to Hex</h3>
+                    <div class="explanation-content" id="explanationContent">
+                        <p class="explanation-step">Step 1: Convert octal to binary (each digit to 3 bits)</p>
+                        <p class="explanation-step">755 = 111 101 101 = 111101101</p>
+                        <p class="explanation-step">Step 2: Group binary into 4-bit chunks (from right)</p>
+                        <p class="explanation-step">111101101 = 1 1110 1101 = 0001 1110 1101</p>
+                        <p class="explanation-step">Step 3: Convert each 4-bit group to hex</p>
+                        <p class="explanation-step">0001 = 1, 1110 = E, 1101 = D → 1ED</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2 class="related-title">Related Converters</h2>
+                <div class="related-grid">
+                    <a href="hex-to-octal.html" class="related-card">
+                        <h3>Hex to Octal</h3>
+                        <p>Convert hexadecimal back to octal</p>
+                    </a>
+                    <a href="octal-to-decimal.html" class="related-card">
+                        <h3>Octal to Decimal</h3>
+                        <p>Convert octal to decimal</p>
+                    </a>
+                    <a href="octal-to-binary.html" class="related-card">
+                        <h3>Octal to Binary</h3>
+                        <p>Convert octal to binary</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">Octal to Hex Conversion</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-card-title">Two-Step Process</h3>
+                        <p class="info-card-text">Since there's no direct 1:1 mapping between octal and hex, convert through binary: octal → binary (3 bits per digit) → hex (group binary into 4-bit chunks).</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Why Binary First?</h3>
+                        <p class="info-card-text">Binary is the common denominator. Octal groups binary in 3-bit chunks, hex in 4-bit chunks. Converting through binary ensures accuracy.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Common Uses</h3>
+                        <p class="info-card-text">• Converting Unix permissions to hex<br>• Programming legacy systems<br>• Digital signal processing<br>• Understanding data representation</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Common Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I convert octal to hex manually?</h3>
+                        <p class="faq-answer">First convert octal to binary (each digit to 3 bits), then group the binary into 4-bit chunks (starting from the right), and convert each 4-bit group to hex. For example, 755 → 111101101 → 1 1110 1101 → 0001 1110 1101 → 1ED.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is octal 777 in hex?</h3>
+                        <p class="faq-answer">777 in octal = 111111111 in binary = 1 1111 1111 in 4-bit groups = 0001 1111 1111 = 1FF in hex. This represents full permissions in Unix (rwx for everyone).</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Why can't I convert octal directly to hex?</h3>
+                        <p class="faq-answer">Because octal groups binary in 3-bit chunks, while hex uses 4-bit chunks. There's no simple 1:1 mapping. Converting through binary ensures accuracy and is the standard method.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do I need to pad binary when grouping?</h3>
+                        <p class="faq-answer">Yes! When grouping binary into 4-bit chunks for hex conversion, you may need to add leading zeros to the leftmost group to make it 4 bits. For example, 111101101 becomes 0001 1110 1101.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/converters/octal-to-hex.js"></script>
+</body>
+</html>

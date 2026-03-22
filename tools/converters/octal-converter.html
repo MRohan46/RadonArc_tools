@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online octal converter. Convert between octal, decimal, binary, and hexadecimal. Perfect for Unix permissions, programming, and digital systems.">
+    <meta name="keywords" content="octal converter, octal to decimal, octal to binary, octal to hex, decimal to octal, binary to octal, hex to octal, base 8 converter">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Octal Converter - Convert Between All Number Systems | RadonArc">
+    <meta property="og:description" content="Convert octal numbers to decimal, binary, and hex instantly. Essential for Unix file permissions and programming.">
+    <meta property="og:type" content="website">
+    
+    <title>Octal Converter - Octal to Decimal, Binary & Hex | RadonArc</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/converters/octal-converter.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../../tools.html" class="nav-link active">Tools</a>
+                <a href="../../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Octal Converter</h1>
+            <p class="tool-page-description">Convert octal numbers (base-8) to decimal, binary, and hexadecimal instantly. Perfect for Unix file permissions and programming.</p>
+        </div>
+    </section>
+
+    <!-- Converter Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="calc-container">
+                <!-- Octal Input -->
+                <div class="converter-input-group" style="margin-bottom: 2rem;">
+                    <label class="converter-label">Octal Number</label>
+                    <input type="text" id="octalInput" class="converter-input" placeholder="e.g., 755, 644, 777" value="755">
+                    <div class="input-hint">Valid digits: 0-7 only</div>
+                </div>
+
+                <!-- All Conversions Display -->
+                <div class="conversion-grid">
+                    <div class="conversion-card">
+                        <div class="conversion-label">Decimal</div>
+                        <div class="conversion-value" id="decimalValue">493</div>
+                        <div class="conversion-desc">Base 10</div>
+                    </div>
+                    
+                    <div class="conversion-card">
+                        <div class="conversion-label">Binary</div>
+                        <div class="conversion-value binary-value" id="binaryValue">111101101</div>
+                        <div class="conversion-desc">Base 2</div>
+                    </div>
+                    
+                    <div class="conversion-card">
+                        <div class="conversion-label">Hexadecimal</div>
+                        <div class="conversion-value" id="hexValue">1ED</div>
+                        <div class="conversion-desc">Base 16</div>
+                    </div>
+                </div>
+
+                <!-- Quick Examples -->
+                <div class="quick-conversions">
+                    <h3 class="quick-title">Common Octal Examples</h3>
+                    <div class="quick-grid">
+                        <div class="quick-item" onclick="converter.setOctal('0')">
+                            <span class="quick-octal">0</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">0</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('7')">
+                            <span class="quick-octal">7</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">7</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('10')">
+                            <span class="quick-octal">10</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">8</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('77')">
+                            <span class="quick-octal">77</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">63</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('100')">
+                            <span class="quick-octal">100</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">64</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('644')">
+                            <span class="quick-octal">644</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">420</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('755')">
+                            <span class="quick-octal">755</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">493</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('777')">
+                            <span class="quick-octal">777</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-dec">511</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step-by-Step Explanation -->
+                <div class="explanation-box" id="explanationBox">
+                    <h3 class="explanation-title">How to Convert Octal to Decimal</h3>
+                    <div class="explanation-content" id="explanationContent">
+                        <p class="explanation-step">755 = (7 × 8²) + (5 × 8¹) + (5 × 8⁰)</p>
+                        <p class="explanation-step">= (7 × 64) + (5 × 8) + (5 × 1)</p>
+                        <p class="explanation-step">= 448 + 40 + 5 = 493</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2 class="related-title">Related Converters</h2>
+                <div class="related-grid">
+                    <a href="octal-to-decimal.html" class="related-card">
+                        <h3>Octal to Decimal</h3>
+                        <p>Convert octal to decimal specifically</p>
+                    </a>
+                    <a href="octal-to-binary.html" class="related-card">
+                        <h3>Octal to Binary</h3>
+                        <p>Convert octal to binary</p>
+                    </a>
+                    <a href="octal-to-hex.html" class="related-card">
+                        <h3>Octal to Hex</h3>
+                        <p>Convert octal to hexadecimal</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">About Octal Numbers</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-card-title">What is Octal?</h3>
+                        <p class="info-card-text">Octal (base-8) uses digits 0-7. It was commonly used in older computer systems and remains important for Unix/Linux file permissions and some programming contexts.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Common Uses</h3>
+                        <p class="info-card-text">• Unix file permissions (chmod 755)<br>• Some programming languages<br>• Digital systems<br>• Legacy computing systems<br>• Character encodings</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Conversion Formula</h3>
+                        <p class="info-card-text">Multiply each digit by 8 raised to its position power (from right, starting at 0). Example: 127 = (1×8²)+(2×8¹)+(7×8⁰) = 64+16+7 = 87</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Common Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">What does octal 755 mean in Unix?</h3>
+                        <p class="faq-answer">In Unix/Linux, 755 sets file permissions: owner can read, write, execute (7), group can read and execute (5), others can read and execute (5). It's the standard permission for scripts and directories.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I convert octal to decimal?</h3>
+                        <p class="faq-answer">Multiply each digit by 8 raised to its position power (starting from 0 on the right), then sum. For example, 127 = (1×64)+(2×8)+(7×1) = 64+16+7 = 87.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Why can't I use digits 8 or 9 in octal?</h3>
+                        <p class="faq-answer">Octal is base-8, so it only uses digits 0-7. Digits 8 and 9 are invalid in octal numbers. If you see an 8 or 9, it's not a valid octal number.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What's the relationship between octal and binary?</h3>
+                        <p class="faq-answer">Each octal digit represents exactly three binary digits (bits). For example, octal 7 (111), octal 5 (101). This makes conversion between octal and binary very straightforward.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/converters/octal-converter.js"></script>
+</body>
+</html>

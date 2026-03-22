@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online hex to binary converter. Convert hexadecimal numbers to binary instantly. Perfect for low-level programming, debugging, and digital electronics.">
+    <meta name="keywords" content="hex to binary, hex to binary converter, hexadecimal to binary, convert hex to binary, hex to bin, hex to binary calculator">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Hex to Binary Converter - Free Online Tool | RadonArc">
+    <meta property="og:description" content="Convert hexadecimal numbers to binary instantly. Fast, accurate, and easy to use.">
+    <meta property="og:type" content="website">
+    
+    <title>Hex to Binary Converter - Convert Hexadecimal to Binary | RadonArc</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/converters/hex-to-binary.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../tools.html" class="nav-link active">Tools</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Hex to Binary Converter</h1>
+            <p class="tool-page-description">Convert hexadecimal numbers to binary instantly. Essential for low-level programming, debugging memory, and digital electronics.</p>
+        </div>
+    </section>
+
+    <!-- Converter Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="calc-container">
+                <!-- Dual Input/Output Display -->
+                <div class="converter-dual">
+                    <div class="converter-input-group">
+                        <label class="converter-label">Hexadecimal</label>
+                        <input type="text" id="hexInput" class="converter-input" placeholder="e.g., FF, 1A3, 2B" value="FF">
+                        <div class="input-hint">Valid characters: 0-9, A-F</div>
+                    </div>
+                    
+                    <div class="converter-swap">
+                        <button id="swapBtn" class="swap-btn" onclick="converter.swap()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 10l5-5 5 5"></path>
+                                <path d="M7 14l5 5 5-5"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="converter-output-group">
+                        <label class="converter-label">Binary</label>
+                        <div class="converter-output binary-value" id="binaryOutput">11111111</div>
+                    </div>
+                </div>
+
+                <!-- Quick Conversions Table -->
+                <div class="quick-conversions">
+                    <h3 class="quick-title">Common Hex to Binary Conversions</h3>
+                    <div class="quick-grid">
+                        <div class="quick-item" onclick="converter.setHex('0')">
+                            <span class="quick-hex">0</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">0000</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('1')">
+                            <span class="quick-hex">1</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">0001</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('2')">
+                            <span class="quick-hex">2</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">0010</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('3')">
+                            <span class="quick-hex">3</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">0011</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('4')">
+                            <span class="quick-hex">4</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">0100</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('5')">
+                            <span class="quick-hex">5</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">0101</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('6')">
+                            <span class="quick-hex">6</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">0110</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('7')">
+                            <span class="quick-hex">7</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">0111</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('8')">
+                            <span class="quick-hex">8</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1000</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('9')">
+                            <span class="quick-hex">9</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1001</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('A')">
+                            <span class="quick-hex">A</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1010</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('B')">
+                            <span class="quick-hex">B</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1011</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('C')">
+                            <span class="quick-hex">C</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1100</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('D')">
+                            <span class="quick-hex">D</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1101</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('E')">
+                            <span class="quick-hex">E</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1110</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setHex('F')">
+                            <span class="quick-hex">F</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1111</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step-by-Step Explanation -->
+                <div class="explanation-box" id="explanationBox">
+                    <h3 class="explanation-title">How to Convert Hex to Binary</h3>
+                    <div class="explanation-content" id="explanationContent">
+                        <p class="explanation-step">Each hex digit converts to 4 binary digits:</p>
+                        <p class="explanation-step">F = 15 = 1111</p>
+                        <p class="explanation-step">F = 15 = 1111</p>
+                        <p class="explanation-step">FF = 1111 1111</p>
+                    </div>
+                </div>
+
+                <!-- Digit-by-Digit Visualizer -->
+                <div class="hex-to-binary-visualizer" id="visualizer">
+                    <h3 class="visualizer-title">Hex to Binary Breakdown</h3>
+                    <div class="hex-digits" id="hexDigits"></div>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2 class="related-title">Related Converters</h2>
+                <div class="related-grid">
+                    <a href="binary-to-hex.html" class="related-card">
+                        <h3>Binary to Hex</h3>
+                        <p>Convert binary back to hexadecimal</p>
+                    </a>
+                    <a href="hex-to-decimal.html" class="related-card">
+                        <h3>Hex to Decimal</h3>
+                        <p>Convert hex to decimal</p>
+                    </a>
+                    <a href="../programmer-calculator.html" class="related-card">
+                        <h3>Programmer Calculator</h3>
+                        <p>Full suite of number system conversions</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">Hex to Binary Conversion</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-card-title">The 4-Bit Rule</h3>
+                        <p class="info-card-text">Each hexadecimal digit represents exactly 4 binary digits (bits). This 1:4 relationship makes conversion straightforward: replace each hex digit with its 4-bit binary equivalent.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Hex to Binary Table</h3>
+                        <p class="info-card-text">0=0000, 1=0001, 2=0010, 3=0011, 4=0100, 5=0101, 6=0110, 7=0111, 8=1000, 9=1001, A=1010, B=1011, C=1100, D=1101, E=1110, F=1111</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Common Uses</h3>
+                        <p class="info-card-text">• Debugging memory dumps<br>• Understanding machine code<br>• Digital circuit design<br>• Network protocol analysis<br>• Assembly programming</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Common Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I convert hex to binary manually?</h3>
+                        <p class="faq-answer">Take each hexadecimal digit and replace it with its 4-bit binary equivalent using the table. For example, hex "A3" becomes "1010 0011" because A=1010 and 3=0011.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is FF in hex in binary?</h3>
+                        <p class="faq-answer">FF in hex = 1111 1111 in binary (eight 1s). This represents 255 in decimal and is the maximum value for a single byte.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Why does each hex digit become 4 binary digits?</h3>
+                        <p class="faq-answer">Because 2⁴ = 16, exactly matching the 16 possible values of a hex digit (0-15). This makes hex the perfect compact representation of binary data.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do I need to pad binary numbers with leading zeros?</h3>
+                        <p class="faq-answer">Yes, each hex digit must become exactly 4 binary digits. For example, hex "2" becomes "0010", not just "10". This maintains the correct place values.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/converters/hex-to-binary.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online decimal to binary converter. Convert decimal numbers to binary instantly. Perfect for students learning binary and programmers.">
+    <meta name="keywords" content="decimal to binary, dec to bin, convert decimal to binary, binary converter, decimal to binary calculator">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Decimal to Binary Converter - Free Online Tool | RadonArc">
+    <meta property="og:description" content="Convert decimal numbers to binary instantly. Fast, accurate, and easy to use.">
+    <meta property="og:type" content="website">
+    
+    <title>Decimal to Binary Converter - Convert Decimal to Binary | RadonArc</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/converters/decimal-to-binary.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../tools.html" class="nav-link active">Tools</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Decimal to Binary Converter</h1>
+            <p class="tool-page-description">Convert decimal numbers to binary instantly. Perfect for students learning binary and programmers working with bitwise operations.</p>
+        </div>
+    </section>
+
+    <!-- Converter Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="calc-container">
+                <!-- Dual Input/Output Display -->
+                <div class="converter-dual">
+                    <div class="converter-input-group">
+                        <label class="converter-label">Decimal</label>
+                        <input type="number" id="decimalInput" class="converter-input" placeholder="e.g., 13, 42, 255" value="13" step="1" min="0">
+                        <div class="input-hint">Valid digits: 0-9 only</div>
+                    </div>
+                    
+                    <div class="converter-swap">
+                        <button id="swapBtn" class="swap-btn" onclick="converter.swap()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 10l5-5 5 5"></path>
+                                <path d="M7 14l5 5 5-5"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="converter-output-group">
+                        <label class="converter-label">Binary</label>
+                        <div class="converter-output binary-value" id="binaryOutput">1101</div>
+                    </div>
+                </div>
+
+                <!-- Quick Conversions Table -->
+                <div class="quick-conversions">
+                    <h3 class="quick-title">Common Decimal to Binary Conversions</h3>
+                    <div class="quick-grid">
+                        <div class="quick-item" onclick="converter.setDecimal('0')">
+                            <span class="quick-dec">0</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">0</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('1')">
+                            <span class="quick-dec">1</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('2')">
+                            <span class="quick-dec">2</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">10</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('3')">
+                            <span class="quick-dec">3</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">11</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('4')">
+                            <span class="quick-dec">4</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">100</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('5')">
+                            <span class="quick-dec">5</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">101</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('6')">
+                            <span class="quick-dec">6</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">110</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('7')">
+                            <span class="quick-dec">7</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">111</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('8')">
+                            <span class="quick-dec">8</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1000</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('9')">
+                            <span class="quick-dec">9</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1001</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('10')">
+                            <span class="quick-dec">10</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1010</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('15')">
+                            <span class="quick-dec">15</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">1111</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step-by-Step Explanation -->
+                <div class="explanation-box" id="explanationBox">
+                    <h3 class="explanation-title">How to Convert Decimal to Binary</h3>
+                    <div class="explanation-content" id="explanationContent">
+                        <p class="explanation-step">13 ÷ 2 = 6 remainder 1</p>
+                        <p class="explanation-step">6 ÷ 2 = 3 remainder 0</p>
+                        <p class="explanation-step">3 ÷ 2 = 1 remainder 1</p>
+                        <p class="explanation-step">1 ÷ 2 = 0 remainder 1</p>
+                        <p class="explanation-step">Read remainders from bottom to top: 1101</p>
+                    </div>
+                </div>
+
+                <!-- Bit Representation -->
+                <div class="bit-representation" id="bitRepresentation">
+                    <h3 class="bit-title">Binary Place Values</h3>
+                    <div class="bit-grid" id="bitGrid"></div>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2 class="related-title">Related Converters</h2>
+                <div class="related-grid">
+                    <a href="binary-to-decimal.html" class="related-card">
+                        <h3>Binary to Decimal</h3>
+                        <p>Convert binary back to decimal</p>
+                    </a>
+                    <a href="decimal-to-hex.html" class="related-card">
+                        <h3>Decimal to Hex</h3>
+                        <p>Convert decimal to hexadecimal</p>
+                    </a>
+                    <a href="../programmer-calculator.html" class="related-card">
+                        <h3>Programmer Calculator</h3>
+                        <p>Full suite of number system conversions</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">About Binary Numbers</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-card-title">What is Binary?</h3>
+                        <p class="info-card-text">Binary (base-2) uses only two digits: 0 and 1. It's the fundamental language of computers, where each digit represents a bit (binary digit).</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Common Uses</h3>
+                        <p class="info-card-text">• Computer processing<br>• IP addressing<br>• Digital electronics<br>• Bitwise operations<br>• Data storage (bits/bytes)</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Conversion Method</h3>
+                        <p class="info-card-text">Repeatedly divide by 2 and read remainders from bottom to top. Example: 13 ÷ 2 = 6r1 → 6÷2=3r0 → 3÷2=1r1 → 1÷2=0r1 → 1101</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Common Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I convert decimal to binary manually?</h3>
+                        <p class="faq-answer">Divide the decimal number by 2 repeatedly, writing down the remainders (0 or 1) from each division. Read the remainders from last to first. Example: 13 ÷ 2 = 6r1, 6÷2=3r0, 3÷2=1r1, 1÷2=0r1 → 1101.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is 255 in binary?</h3>
+                        <p class="faq-answer">255 in binary is 11111111 (eight 1s). This is the maximum value for a single byte (8 bits) and is common in IP addresses (255.255.255.0).</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Why do computers use binary?</h3>
+                        <p class="faq-answer">Computers use binary because transistors have two states: on (1) and off (0). This makes binary the most reliable and efficient way to represent data electronically.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What's the difference between bit and byte?</h3>
+                        <p class="faq-answer">A bit is a single binary digit (0 or 1). A byte is 8 bits, which can represent numbers from 0 to 255. Our converter shows the binary representation and its place values.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/converters/decimal-to-binary.js"></script>
+</body>
+</html>
+
+

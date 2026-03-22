@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online decimal to octal converter. Convert decimal numbers to octal instantly. Perfect for Unix file permissions and programming.">
+    <meta name="keywords" content="decimal to octal, decimal to octal converter, convert decimal to octal, dec to oct, base 10 to base 8">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Decimal to Octal Converter - Free Online Tool | RadonArc">
+    <meta property="og:description" content="Convert decimal numbers to octal instantly. Essential for Unix permissions and programming.">
+    <meta property="og:type" content="website">
+    
+    <title>Decimal to Octal Converter - Convert Decimal to Octal | RadonArc</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/converters/decimal-to-octal.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../tools.html" class="nav-link active">Tools</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Decimal to Octal Converter</h1>
+            <p class="tool-page-description">Convert decimal numbers (base-10) to octal (base-8) instantly. Perfect for Unix/Linux file permissions (chmod) and programming.</p>
+        </div>
+    </section>
+
+    <!-- Converter Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="calc-container">
+                <!-- Dual Input/Output Display -->
+                <div class="converter-dual">
+                    <div class="converter-input-group">
+                        <label class="converter-label">Decimal</label>
+                        <input type="number" id="decimalInput" class="converter-input" placeholder="e.g., 493, 420, 511" value="493" step="1" min="0">
+                        <div class="input-hint">Valid digits: 0-9 only</div>
+                    </div>
+                    
+                    <div class="converter-swap">
+                        <button id="swapBtn" class="swap-btn" onclick="converter.swap()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 10l5-5 5 5"></path>
+                                <path d="M7 14l5 5 5-5"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="converter-output-group">
+                        <label class="converter-label">Octal</label>
+                        <div class="converter-output" id="octalOutput">755</div>
+                    </div>
+                </div>
+
+                <!-- Unix Permission Examples -->
+                <div class="unix-permissions">
+                    <h3 class="permissions-title">🔒 Unix File Permissions</h3>
+                    <div class="permissions-grid">
+                        <div class="permission-card" onclick="converter.setDecimal('256')">
+                            <span class="permission-dec">256</span>
+                            <span class="permission-arrow">→</span>
+                            <span class="permission-octal">400</span>
+                            <span class="permission-desc">Read for owner only</span>
+                        </div>
+                        <div class="permission-card" onclick="converter.setDecimal('384')">
+                            <span class="permission-dec">384</span>
+                            <span class="permission-arrow">→</span>
+                            <span class="permission-octal">600</span>
+                            <span class="permission-desc">Read/write for owner</span>
+                        </div>
+                        <div class="permission-card" onclick="converter.setDecimal('420')">
+                            <span class="permission-dec">420</span>
+                            <span class="permission-arrow">→</span>
+                            <span class="permission-octal">644</span>
+                            <span class="permission-desc">Owner r/w, group/others r</span>
+                        </div>
+                        <div class="permission-card" onclick="converter.setDecimal('448')">
+                            <span class="permission-dec">448</span>
+                            <span class="permission-arrow">→</span>
+                            <span class="permission-octal">700</span>
+                            <span class="permission-desc">Owner r/w/x only</span>
+                        </div>
+                        <div class="permission-card" onclick="converter.setDecimal('493')">
+                            <span class="permission-dec">493</span>
+                            <span class="permission-arrow">→</span>
+                            <span class="permission-octal">755</span>
+                            <span class="permission-desc">Owner r/w/x, group/others r/x</span>
+                        </div>
+                        <div class="permission-card" onclick="converter.setDecimal('511')">
+                            <span class="permission-dec">511</span>
+                            <span class="permission-arrow">→</span>
+                            <span class="permission-octal">777</span>
+                            <span class="permission-desc">Everyone r/w/x</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Conversions Table -->
+                <div class="quick-conversions">
+                    <h3 class="quick-title">Common Decimal to Octal Conversions</h3>
+                    <div class="quick-grid">
+                        <div class="quick-item" onclick="converter.setDecimal('0')">
+                            <span class="quick-dec">0</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-octal">0</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('7')">
+                            <span class="quick-dec">7</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-octal">7</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('8')">
+                            <span class="quick-dec">8</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-octal">10</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('9')">
+                            <span class="quick-dec">9</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-octal">11</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('15')">
+                            <span class="quick-dec">15</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-octal">17</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('16')">
+                            <span class="quick-dec">16</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-octal">20</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('64')">
+                            <span class="quick-dec">64</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-octal">100</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setDecimal('255')">
+                            <span class="quick-dec">255</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-octal">377</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step-by-Step Explanation -->
+                <div class="explanation-box" id="explanationBox">
+                    <h3 class="explanation-title">How to Convert Decimal to Octal</h3>
+                    <div class="explanation-content" id="explanationContent">
+                        <p class="explanation-step">493 ÷ 8 = 61 remainder 5</p>
+                        <p class="explanation-step">61 ÷ 8 = 7 remainder 5</p>
+                        <p class="explanation-step">7 ÷ 8 = 0 remainder 7</p>
+                        <p class="explanation-step">Read remainders from bottom to top: 755</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2 class="related-title">Related Converters</h2>
+                <div class="related-grid">
+                    <a href="octal-to-decimal.html" class="related-card">
+                        <h3>Octal to Decimal</h3>
+                        <p>Convert octal back to decimal</p>
+                    </a>
+                    <a href="decimal-to-binary.html" class="related-card">
+                        <h3>Decimal to Binary</h3>
+                        <p>Convert decimal to binary</p>
+                    </a>
+                    <a href="decimal-to-hex.html" class="related-card">
+                        <h3>Decimal to Hex</h3>
+                        <p>Convert decimal to hexadecimal</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">Decimal to Octal Conversion</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-card-title">Division Method</h3>
+                        <p class="info-card-text">Repeatedly divide by 8 and read remainders from bottom to top. This is the standard method for converting from decimal to any base.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Unix Permissions</h3>
+                        <p class="info-card-text">Octal is used in chmod because each digit (0-7) represents permissions for owner, group, and others. Each permission set is 3 bits: read(4), write(2), execute(1).</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Common Uses</h3>
+                        <p class="info-card-text">• Setting file permissions (chmod)<br>• Legacy computing systems<br>• Digital electronics<br>• Understanding number systems</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Common Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I convert decimal to octal manually?</h3>
+                        <p class="faq-answer">Divide the decimal number by 8 repeatedly, writing down the remainders (0-7). Read the remainders from last to first. For example, 493 ÷ 8 = 61r5, 61÷8=7r5, 7÷8=0r7 → 755.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is 255 in decimal in octal?</h3>
+                        <p class="faq-answer">255 in decimal = 377 in octal. This is because 255 ÷ 8 = 31r7, 31÷8=3r7, 3÷8=0r3 → 377.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Why is octal used for file permissions?</h3>
+                        <p class="faq-answer">Because each octal digit perfectly represents 3 permission bits: read(4), write(2), execute(1). Sum them: 7=rwx, 6=rw-, 5=r-x, 4=r--, 3=wx, 2=w-, 1=x, 0=---.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What's the largest decimal number I can convert?</h3>
+                        <p class="faq-answer">This converter handles numbers up to 2⁵³-1 (about 9 quadrillion), which covers all practical use cases including Unix permissions and programming.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/converters/decimal-to-octal.js"></script>
+</body>
+</html>

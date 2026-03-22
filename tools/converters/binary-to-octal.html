@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Free online binary to hex converter. Convert binary numbers to hexadecimal instantly. Perfect for programmers working with low-level code and memory addresses.">
-    <meta name="keywords" content="binary to hex, bin to hex, convert binary to hex, binary to hexadecimal, binary hex converter">
+    <meta name="description" content="Free online binary to octal converter. Convert binary numbers to octal instantly. Perfect for programming and digital systems.">
+    <meta name="keywords" content="binary to octal, binary to octal converter, convert binary to octal, bin to oct, base 2 to base 8">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Binary to Hex Converter - Free Online Tool | RadonArc">
-    <meta property="og:description" content="Convert binary numbers to hexadecimal instantly. Fast, accurate, and easy to use.">
+    <meta property="og:title" content="Binary to Octal Converter - Free Online Tool | RadonArc">
+    <meta property="og:description" content="Convert binary numbers to octal instantly. Fast, accurate, and easy to use.">
     <meta property="og:type" content="website">
     
-    <title>Binary to Hex Converter - Convert Binary to Hexadecimal | RadonArc</title>
+    <title>Binary to Octal Converter - Convert Binary to Octal | RadonArc</title>
     <link rel="stylesheet" href="../../assets/css/styles.css">
-    <link rel="canonical" href="https://radonarc.xyz/tools/converters/binary-to-hex.html">
+    <link rel="canonical" href="https://radonarc.xyz/tools/converters/binary-to-octal.html">
 </head>
 <body>
     <!-- Navigation -->
@@ -40,8 +40,8 @@
                 </svg>
                 Back to Tools
             </a>
-            <h1 class="tool-page-title">Binary to Hex Converter</h1>
-            <p class="tool-page-description">Convert binary numbers to hexadecimal instantly. Essential for programmers working with low-level code, memory addresses, and bit manipulation.</p>
+            <h1 class="tool-page-title">Binary to Octal Converter</h1>
+            <p class="tool-page-description">Convert binary numbers (base-2) to octal (base-8) instantly. Each 3 binary digits become 1 octal digit.</p>
         </div>
     </section>
 
@@ -53,7 +53,7 @@
                 <div class="converter-dual">
                     <div class="converter-input-group">
                         <label class="converter-label">Binary</label>
-                        <input type="text" id="binaryInput" class="converter-input" placeholder="e.g., 1101, 11111111, 10101010" value="1101">
+                        <input type="text" id="binaryInput" class="converter-input" placeholder="e.g., 111101101, 11111111" value="111101101">
                         <div class="input-hint">Valid characters: only 0 and 1</div>
                     </div>
                     
@@ -67,112 +67,105 @@
                     </div>
                     
                     <div class="converter-output-group">
-                        <label class="converter-label">Hexadecimal</label>
-                        <div class="converter-output" id="hexOutput">D</div>
+                        <label class="converter-label">Octal</label>
+                        <div class="converter-output" id="octalOutput">755</div>
+                    </div>
+                </div>
+
+                <!-- Binary to Octal Grouping Visualizer -->
+                <div class="grouping-visualizer">
+                    <h3 class="grouping-title">3-Bit Grouping</h3>
+                    <div class="binary-grouping" id="binaryGrouping">
+                        <div class="grouping-row">
+                            <div class="grouping-group">
+                                <div class="grouping-bits">111</div>
+                                <div class="grouping-arrow">↓</div>
+                                <div class="grouping-octal">7</div>
+                            </div>
+                            <div class="grouping-group">
+                                <div class="grouping-bits">101</div>
+                                <div class="grouping-arrow">↓</div>
+                                <div class="grouping-octal">5</div>
+                            </div>
+                            <div class="grouping-group">
+                                <div class="grouping-bits">101</div>
+                                <div class="grouping-arrow">↓</div>
+                                <div class="grouping-octal">5</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Quick Conversions Table -->
                 <div class="quick-conversions">
-                    <h3 class="quick-title">Common Binary to Hex Conversions</h3>
+                    <h3 class="quick-title">Common Binary to Octal Conversions</h3>
                     <div class="quick-grid">
                         <div class="quick-item" onclick="converter.setBinary('0')">
                             <span class="quick-binary">0</span>
                             <span class="quick-arrow">→</span>
-                            <span class="quick-hex">0</span>
+                            <span class="quick-octal">0</span>
                         </div>
                         <div class="quick-item" onclick="converter.setBinary('1')">
                             <span class="quick-binary">1</span>
                             <span class="quick-arrow">→</span>
-                            <span class="quick-hex">1</span>
+                            <span class="quick-octal">1</span>
                         </div>
                         <div class="quick-item" onclick="converter.setBinary('10')">
                             <span class="quick-binary">10</span>
                             <span class="quick-arrow">→</span>
-                            <span class="quick-hex">2</span>
+                            <span class="quick-octal">2</span>
                         </div>
                         <div class="quick-item" onclick="converter.setBinary('11')">
                             <span class="quick-binary">11</span>
                             <span class="quick-arrow">→</span>
-                            <span class="quick-hex">3</span>
+                            <span class="quick-octal">3</span>
                         </div>
                         <div class="quick-item" onclick="converter.setBinary('100')">
                             <span class="quick-binary">100</span>
                             <span class="quick-arrow">→</span>
-                            <span class="quick-hex">4</span>
+                            <span class="quick-octal">4</span>
                         </div>
                         <div class="quick-item" onclick="converter.setBinary('101')">
                             <span class="quick-binary">101</span>
                             <span class="quick-arrow">→</span>
-                            <span class="quick-hex">5</span>
+                            <span class="quick-octal">5</span>
                         </div>
                         <div class="quick-item" onclick="converter.setBinary('110')">
                             <span class="quick-binary">110</span>
                             <span class="quick-arrow">→</span>
-                            <span class="quick-hex">6</span>
+                            <span class="quick-octal">6</span>
                         </div>
                         <div class="quick-item" onclick="converter.setBinary('111')">
                             <span class="quick-binary">111</span>
                             <span class="quick-arrow">→</span>
-                            <span class="quick-hex">7</span>
+                            <span class="quick-octal">7</span>
                         </div>
                         <div class="quick-item" onclick="converter.setBinary('1000')">
                             <span class="quick-binary">1000</span>
                             <span class="quick-arrow">→</span>
-                            <span class="quick-hex">8</span>
-                        </div>
-                        <div class="quick-item" onclick="converter.setBinary('1001')">
-                            <span class="quick-binary">1001</span>
-                            <span class="quick-arrow">→</span>
-                            <span class="quick-hex">9</span>
-                        </div>
-                        <div class="quick-item" onclick="converter.setBinary('1010')">
-                            <span class="quick-binary">1010</span>
-                            <span class="quick-arrow">→</span>
-                            <span class="quick-hex">A</span>
-                        </div>
-                        <div class="quick-item" onclick="converter.setBinary('1011')">
-                            <span class="quick-binary">1011</span>
-                            <span class="quick-arrow">→</span>
-                            <span class="quick-hex">B</span>
-                        </div>
-                        <div class="quick-item" onclick="converter.setBinary('1100')">
-                            <span class="quick-binary">1100</span>
-                            <span class="quick-arrow">→</span>
-                            <span class="quick-hex">C</span>
-                        </div>
-                        <div class="quick-item" onclick="converter.setBinary('1101')">
-                            <span class="quick-binary">1101</span>
-                            <span class="quick-arrow">→</span>
-                            <span class="quick-hex">D</span>
-                        </div>
-                        <div class="quick-item" onclick="converter.setBinary('1110')">
-                            <span class="quick-binary">1110</span>
-                            <span class="quick-arrow">→</span>
-                            <span class="quick-hex">E</span>
+                            <span class="quick-octal">10</span>
                         </div>
                         <div class="quick-item" onclick="converter.setBinary('1111')">
                             <span class="quick-binary">1111</span>
                             <span class="quick-arrow">→</span>
-                            <span class="quick-hex">F</span>
+                            <span class="quick-octal">17</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setBinary('11111111')">
+                            <span class="quick-binary">11111111</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-octal">377</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Grouping Explanation -->
+                <!-- Step-by-Step Explanation -->
                 <div class="explanation-box" id="explanationBox">
-                    <h3 class="explanation-title">How to Convert Binary to Hex</h3>
+                    <h3 class="explanation-title">How to Convert Binary to Octal</h3>
                     <div class="explanation-content" id="explanationContent">
-                        <p class="explanation-step">Group binary digits in sets of 4 (from right): 1101</p>
-                        <p class="explanation-step">1101 = (1×8) + (1×4) + (0×2) + (1×1) = 13</p>
-                        <p class="explanation-step">13 in hex = D</p>
+                        <p class="explanation-step">Group binary digits in sets of 3 (from right): 111 101 101</p>
+                        <p class="explanation-step">111 = 7, 101 = 5, 101 = 5</p>
+                        <p class="explanation-step">Combine: 755</p>
                     </div>
-                </div>
-
-                <!-- Grouping Visualizer -->
-                <div class="grouping-visualizer" id="groupingVisualizer">
-                    <h3 class="grouping-title">Binary to Hex Grouping</h3>
-                    <div class="grouping-grid" id="groupingGrid"></div>
                 </div>
             </div>
 
@@ -180,36 +173,36 @@
             <div class="related-tools">
                 <h2 class="related-title">Related Converters</h2>
                 <div class="related-grid">
-                    <a href="hex-to-binary.html" class="related-card">
-                        <h3>Hex to Binary</h3>
-                        <p>Convert hexadecimal back to binary</p>
+                    <a href="octal-to-binary.html" class="related-card">
+                        <h3>Octal to Binary</h3>
+                        <p>Convert octal back to binary</p>
                     </a>
                     <a href="binary-to-decimal.html" class="related-card">
                         <h3>Binary to Decimal</h3>
                         <p>Convert binary to decimal</p>
                     </a>
-                    <a href="../programmer-calculator.html" class="related-card">
-                        <h3>Programmer Calculator</h3>
-                        <p>Full suite of number system conversions</p>
+                    <a href="binary-to-hex.html" class="related-card">
+                        <h3>Binary to Hex</h3>
+                        <p>Convert binary to hexadecimal</p>
                     </a>
                 </div>
             </div>
 
             <!-- Info Section -->
             <div class="tool-info-section">
-                <h2 class="info-title">Binary to Hex Conversion</h2>
+                <h2 class="info-title">Binary to Octal Conversion</h2>
                 <div class="info-grid">
                     <div class="info-card">
-                        <h3 class="info-card-title">The 4-Bit Rule</h3>
-                        <p class="info-card-text">Every 4 binary digits (bits) equal exactly 1 hexadecimal digit. This makes conversion simple: group binary numbers in sets of 4 from the right, then convert each group.</p>
+                        <h3 class="info-card-title">The 3-Bit Rule</h3>
+                        <p class="info-card-text">Each octal digit represents exactly 3 binary digits (bits) because 2³ = 8. This 1:3 relationship makes conversion straightforward.</p>
                     </div>
                     <div class="info-card">
-                        <h3 class="info-card-title">Binary to Hex Table</h3>
-                        <p class="info-card-text">0000=0, 0001=1, 0010=2, 0011=3, 0100=4, 0101=5, 0110=6, 0111=7, 1000=8, 1001=9, 1010=A, 1011=B, 1100=C, 1101=D, 1110=E, 1111=F</p>
+                        <h3 class="info-card-title">Grouping Method</h3>
+                        <p class="info-card-text">Group binary digits into sets of 3 starting from the right. Convert each 3-bit group to its octal equivalent (0-7). If the leftmost group has fewer than 3 bits, pad with zeros on the left.</p>
                     </div>
                     <div class="info-card">
                         <h3 class="info-card-title">Common Uses</h3>
-                        <p class="info-card-text">• Memory addresses (hex is more compact)<br>• Machine code representation<br>• Debugging binary data<br>• Network protocols</p>
+                        <p class="info-card-text">• Unix file permissions (chmod)<br>• Legacy computing systems<br>• Digital circuit design<br>• Understanding binary representation</p>
                     </div>
                 </div>
 
@@ -217,23 +210,23 @@
                     <h2 class="faq-title">Common Questions</h2>
                     
                     <div class="faq-item">
-                        <h3 class="faq-question">How do I convert binary to hex manually?</h3>
-                        <p class="faq-answer">Group the binary digits into sets of 4 starting from the right. If the leftmost group has fewer than 4 digits, pad with zeros on the left. Then convert each 4-bit group using the table: 0000=0, 0001=1, ... 1111=F.</p>
+                        <h3 class="faq-question">How do I convert binary to octal manually?</h3>
+                        <p class="faq-answer">Group the binary digits into sets of 3 starting from the right. If the leftmost group has fewer than 3 digits, pad with zeros. Then convert each 3-bit group to its octal equivalent using the table: 000=0, 001=1, 010=2, 011=3, 100=4, 101=5, 110=6, 111=7.</p>
                     </div>
 
                     <div class="faq-item">
-                        <h3 class="faq-question">What is 11111111 in binary in hex?</h3>
-                        <p class="faq-answer">11111111 in binary = FF in hex. Group as 1111 1111 = F F. This represents 255 in decimal and is a common byte value.</p>
+                        <h3 class="faq-question">What is 11111111 in binary in octal?</h3>
+                        <p class="faq-answer">11111111 in binary = 11 111 111 in 3-bit groups = 011 111 111 = 377 in octal. This is the same as 255 in decimal.</p>
                     </div>
 
                     <div class="faq-item">
-                        <h3 class="faq-question">Why does 4 bits equal 1 hex digit?</h3>
-                        <p class="faq-answer">4 bits can represent 16 different values (0-15), which exactly matches the 16 digits of hexadecimal (0-9 and A-F). This makes hex the perfect shorthand for binary.</p>
+                        <h3 class="faq-question">Why do I need to pad the leftmost group?</h3>
+                        <p class="faq-answer">Padding ensures each group has exactly 3 bits, making conversion consistent. For example, 11101 becomes 011 101, not just 11 101, which would give a different result (35 vs 115).</p>
                     </div>
 
                     <div class="faq-item">
-                        <h3 class="faq-question">What's the longest binary number I can convert?</h3>
-                        <p class="faq-answer">This converter handles binary numbers up to 64 bits (16 hex digits), which covers most programming scenarios including 32-bit and 64-bit integers.</p>
+                        <h3 class="faq-question">What's the relationship between binary and octal?</h3>
+                        <p class="faq-answer">Octal is essentially a shorthand for binary. Each octal digit represents exactly 3 bits, making it much easier to read and write binary data. For example, binary 111101101 is much more readable as 755 in octal.</p>
                     </div>
                 </div>
             </div>
@@ -248,5 +241,6 @@
     </footer>
 
     <script src="../../assets/js/script.js"></script>
-    <script src="../../assets/js/converters/binary-to-hex.js"></script>
+    <script src="../../assets/js/converters/binary-to-octal.js"></script>
 </body>
+</html>

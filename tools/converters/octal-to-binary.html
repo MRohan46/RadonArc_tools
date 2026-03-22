@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online octal to binary converter. Convert octal numbers to binary instantly. Perfect for understanding Unix permissions and digital systems.">
+    <meta name="keywords" content="octal to binary, octal to binary converter, convert octal to binary, oct to bin, base 8 to base 2">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Octal to Binary Converter - Free Online Tool | RadonArc">
+    <meta property="og:description" content="Convert octal numbers to binary instantly. Fast, accurate, and easy to use.">
+    <meta property="og:type" content="website">
+    
+    <title>Octal to Binary Converter - Convert Octal to Binary | RadonArc</title>
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <link rel="canonical" href="https://radonarc.xyz/tools/converters/octal-to-binary.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="logo-main">Radon</span><span class="logo-accent">Arc</span>
+            </a>
+            <div class="nav-links">
+                <a href="../tools.html" class="nav-link active">Tools</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tool Header -->
+    <section class="tool-page-header">
+        <div class="container">
+            <a href="../tools.html" class="back-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="19" y1="12" x2="5" y2="12"></line>
+                    <polyline points="12 19 5 12 12 5"></polyline>
+                </svg>
+                Back to Tools
+            </a>
+            <h1 class="tool-page-title">Octal to Binary Converter</h1>
+            <p class="tool-page-description">Convert octal numbers (base-8) to binary (base-2) instantly. Each octal digit becomes exactly 3 binary digits.</p>
+        </div>
+    </section>
+
+    <!-- Converter Section -->
+    <section class="tool-calculator-section">
+        <div class="container">
+            <div class="calc-container">
+                <!-- Dual Input/Output Display -->
+                <div class="converter-dual">
+                    <div class="converter-input-group">
+                        <label class="converter-label">Octal</label>
+                        <input type="text" id="octalInput" class="converter-input" placeholder="e.g., 755, 644, 777" value="755">
+                        <div class="input-hint">Valid digits: 0-7 only</div>
+                    </div>
+                    
+                    <div class="converter-swap">
+                        <button id="swapBtn" class="swap-btn" onclick="converter.swap()">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 10l5-5 5 5"></path>
+                                <path d="M7 14l5 5 5-5"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="converter-output-group">
+                        <label class="converter-label">Binary</label>
+                        <div class="converter-output binary-value" id="binaryOutput">111 101 101</div>
+                    </div>
+                </div>
+
+                <!-- Octal to Binary Table -->
+                <div class="quick-conversions">
+                    <h3 class="quick-title">Octal to Binary Reference</h3>
+                    <div class="quick-grid octal-binary-grid">
+                        <div class="quick-item" onclick="converter.setOctal('0')">
+                            <span class="quick-octal">0</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">000</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('1')">
+                            <span class="quick-octal">1</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">001</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('2')">
+                            <span class="quick-octal">2</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">010</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('3')">
+                            <span class="quick-octal">3</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">011</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('4')">
+                            <span class="quick-octal">4</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">100</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('5')">
+                            <span class="quick-octal">5</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">101</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('6')">
+                            <span class="quick-octal">6</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">110</span>
+                        </div>
+                        <div class="quick-item" onclick="converter.setOctal('7')">
+                            <span class="quick-octal">7</span>
+                            <span class="quick-arrow">→</span>
+                            <span class="quick-binary">111</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step-by-Step Explanation -->
+                <div class="explanation-box" id="explanationBox">
+                    <h3 class="explanation-title">How to Convert Octal to Binary</h3>
+                    <div class="explanation-content" id="explanationContent">
+                        <p class="explanation-step">Each octal digit converts to 3 binary digits:</p>
+                        <p class="explanation-step">7 = 111</p>
+                        <p class="explanation-step">5 = 101</p>
+                        <p class="explanation-step">5 = 101</p>
+                        <p class="explanation-step">755 = 111 101 101</p>
+                    </div>
+                </div>
+
+                <!-- Digit-by-Digit Visualizer -->
+                <div class="octal-to-binary-visualizer" id="visualizer">
+                    <h3 class="visualizer-title">Octal to Binary Breakdown</h3>
+                    <div class="octal-digits" id="octalDigits"></div>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div class="related-tools">
+                <h2 class="related-title">Related Converters</h2>
+                <div class="related-grid">
+                    <a href="binary-to-octal.html" class="related-card">
+                        <h3>Binary to Octal</h3>
+                        <p>Convert binary back to octal</p>
+                    </a>
+                    <a href="octal-to-decimal.html" class="related-card">
+                        <h3>Octal to Decimal</h3>
+                        <p>Convert octal to decimal</p>
+                    </a>
+                    <a href="octal-to-hex.html" class="related-card">
+                        <h3>Octal to Hex</h3>
+                        <p>Convert octal to hexadecimal</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Info Section -->
+            <div class="tool-info-section">
+                <h2 class="info-title">Octal to Binary Conversion</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3 class="info-card-title">The 3-Bit Rule</h3>
+                        <p class="info-card-text">Each octal digit represents exactly 3 binary digits (bits) because 2³ = 8. This 1:3 relationship makes conversion straightforward.</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Binary Groups</h3>
+                        <p class="info-card-text">When converting, always write each octal digit as a 3-bit binary number. For example, octal 5 becomes 101 (not just 101 without leading zeros).</p>
+                    </div>
+                    <div class="info-card">
+                        <h3 class="info-card-title">Common Uses</h3>
+                        <p class="info-card-text">• Unix file permissions (chmod)<br>• Legacy computing systems<br>• Digital circuit design<br>• Understanding binary representation</p>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2 class="faq-title">Common Questions</h2>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How do I convert octal to binary manually?</h3>
+                        <p class="faq-answer">Take each octal digit and replace it with its 3-bit binary equivalent. For example, octal 755 becomes: 7→111, 5→101, 5→101, so 111101101.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">What is octal 777 in binary?</h3>
+                        <p class="faq-answer">777 in octal = 111 111 111 in binary (nine 1s). This represents the maximum permissions (rwx for everyone) in Unix systems.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Why does each octal digit become 3 binary digits?</h3>
+                        <p class="faq-answer">Because 2³ = 8, matching the 8 possible values of an octal digit (0-7). This makes octal useful for grouping binary numbers into readable chunks.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do I need to keep leading zeros in binary?</h3>
+                        <p class="faq-answer">Yes, each octal digit must become exactly 3 binary digits. For example, octal 2 becomes 010, not just 10, to maintain the correct grouping.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 RadonArc. Built with intention.</p>
+        </div>
+    </footer>
+
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/converters/octal-to-binary.js"></script>
+</body>
+</html>
+
+
